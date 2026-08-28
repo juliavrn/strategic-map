@@ -24,7 +24,6 @@ export default function Sunburst({
     onSelect
   }: SunburstProps) {
   const svgRef = useRef<SVGSVGElement | null>(null)
-  const previousFocus = useRef<string | null>(null)
   const [focusName, setFocusName] = useState<string | null>(null)
 
   const getColor = (
@@ -67,77 +66,6 @@ export default function Sunburst({
       .hsl(color.h, color.s, lightness)
       .formatHex()
   }
-
-  const wrapText = (
-    text: string,
-    maxCharacters: number,
-  ) => {
-    const words = text.split(" ")
-    const lines: string[] = []
-    let currentLine = ""
-
-    words.forEach((word) => {
-      const testLine = currentLine
-        ? `${currentLine} ${word}`
-        : word
-
-      if (testLine.length <= maxCharacters) {
-        currentLine = testLine
-      } else {
-        if (currentLine) {
-          lines.push(currentLine)
-        }
-
-        currentLine = word
-      }
-    })
-
-    if (currentLine) {
-      lines.push(currentLine)
-    }
-
-    return lines
-  }
-
-  const animateArc = (
-  selection: d3.Selection<
-    SVGPathElement,
-    d3.HierarchyRectangularNode<Theme>,
-    SVGGElement,
-    unknown
-  >,
-  arcGenerator: d3.Arc<
-    d3.HierarchyRectangularNode<Theme>,
-    d3.DefaultArcObject
-  >
-) => {
-
-  selection
-    .transition()
-    .duration(900)
-    .ease(d3.easeCubicInOut)
-    .attrTween("d", function (node) {
-
-      const element = d3.select(this)
-
-      const previous = element.datum() as any
-
-      const interpolate = d3.interpolate(
-        previous,
-        node
-      )
-
-      return (t) => {
-
-        const current = interpolate(t)
-
-        return arcGenerator(current) ?? ""
-
-      }
-
-    })
-
-}
 
 
   useEffect(() => {
@@ -239,7 +167,6 @@ mainThemes.forEach((theme, index) => {
         : root.children?.find(
             (node) => node.data.name === focusName,
           ) ?? root
-    const previousFocus = focusName
 
     const focusAngleSize = focus.x1 - focus.x0
     const focusRadiusStart = focus.y0
@@ -362,7 +289,7 @@ const paths = group
   )
   .join("path")
   .attr("class", "arc")
-  .attr("d", arc)
+  .attr("d", (node) => arc(node))
   .attr("fill", (node) => getColor(node))
   .attr("stroke", "white")
   .attr("stroke-width", 2)
@@ -479,8 +406,6 @@ labels.each(function (node) {
     2 *
     Math.PI
 
-  const middleAngle =
-    (startAngle + endAngle) / 2
 
   const labelRadius =
     (Math.max(0, node.y0 - focusRadiusStart) +
