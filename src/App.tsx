@@ -16,7 +16,7 @@ function App() {
         background: "white",
       }}
     >
-      <h1>MAPA</h1>
+      <h1>Mapa Estratégico</h1>
       <Sunburst
         data={themes}
         onSelect={setSelectedNode}

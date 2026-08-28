@@ -24,7 +24,7 @@ export default function DetailPanel({
   return (
 
     <>
-      {/* Overlay derrière le panneau */}
+      {/* Background overlay */}
       <motion.div
 
         initial={{ opacity: 0 }}
@@ -85,16 +85,19 @@ export default function DetailPanel({
             top: "20px",
             right: "20px",
             border: "none",
-            background: "#f3f4f6",
+            background: "#374151",
+            color: "white",
             width: "36px",
             height: "36px",
             borderRadius: "50%",
             cursor: "pointer",
-            fontSize: "18px"
+            fontSize: "18px",
+            fontWeight: "bold",
           }}
         >
           ✕
         </button>
+
         <h2
           style={{
             marginTop: "20px",
@@ -104,6 +107,7 @@ export default function DetailPanel({
         >
           {node.name}
         </h2>
+        
         {node.image && (
           <img
             src={node.image}
@@ -120,8 +124,6 @@ export default function DetailPanel({
 
         )}
 
-
-
         <p
           style={{
             lineHeight: 1.6,
@@ -130,19 +132,13 @@ export default function DetailPanel({
           }}
         >
           {node.description}
-
         </p>
 
-
-
         {node.objectives && (
-
           <>
-
             <h3>
               Strategic objectives
             </h3>
-
 
             <ul>
 
@@ -162,8 +158,6 @@ export default function DetailPanel({
 
 
       </motion.aside>
-
-
     </>
 
   )
