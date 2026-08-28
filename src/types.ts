@@ -1,7 +1,13 @@
 export interface Theme {
+  id: string
   name: string
   description?: string
   value?: number
-  meta?: Record<string, string>
+  image?: string
+  objectives?: string[]
+  links?: {
+    title: string
+    url: string
+  }[]
   children?: Theme[]
 }

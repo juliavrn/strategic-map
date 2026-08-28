@@ -4,6 +4,8 @@ import type { Theme } from "../types"
 
 interface SunburstProps {
   data: Theme
+  onSelect: (node: Theme) => void
+
 }
 
 const themeColors: Record<string, string> = {
@@ -17,10 +19,12 @@ const themeColors: Record<string, string> = {
   Infrastructure: "#455A64",
 }
 
-export default function Sunburst({ data }: SunburstProps) {
+export default function Sunburst({
+    data,
+    onSelect
+  }: SunburstProps) {
   const svgRef = useRef<SVGSVGElement | null>(null)
-
-  // null = MAPA overview
+  const previousFocus = useRef<string | null>(null)
   const [focusName, setFocusName] = useState<string | null>(null)
 
   const getColor = (
@@ -95,6 +99,48 @@ export default function Sunburst({ data }: SunburstProps) {
     return lines
   }
 
+  const animateArc = (
+  selection: d3.Selection<
+    SVGPathElement,
+    d3.HierarchyRectangularNode<Theme>,
+    SVGGElement,
+    unknown
+  >,
+  arcGenerator: d3.Arc<
+    d3.HierarchyRectangularNode<Theme>,
+    d3.DefaultArcObject
+  >
+) => {
+
+  selection
+    .transition()
+    .duration(900)
+    .ease(d3.easeCubicInOut)
+    .attrTween("d", function (node) {
+
+      const element = d3.select(this)
+
+      const previous = element.datum() as any
+
+      const interpolate = d3.interpolate(
+        previous,
+        node
+      )
+
+      return (t) => {
+
+        const current = interpolate(t)
+
+        return arcGenerator(current) ?? ""
+
+      }
+
+    })
+
+}
+
+
+
   useEffect(() => {
     if (!svgRef.current) return
 
@@ -106,10 +152,11 @@ export default function Sunburst({ data }: SunburstProps) {
       .select(svgRef.current)
       .attr("viewBox", `0 0 ${width} ${height}`)
 
-    // Important:
-    // We redraw everything cleanly whenever the focus changes.
-    svg.selectAll("*").remove()
+const rootGroup = svg.select("g.main-group")
 
+if (!rootGroup.empty()) {
+  rootGroup.remove()
+}
     // -----------------------------------------
     // HIERARCHY
     // -----------------------------------------
@@ -131,6 +178,7 @@ export default function Sunburst({ data }: SunburstProps) {
         : root.children?.find(
             (node) => node.data.name === focusName,
           ) ?? root
+    const previousFocus = focusName
 
     const focusAngleSize = focus.x1 - focus.x0
     const focusRadiusStart = focus.y0
@@ -141,6 +189,7 @@ export default function Sunburst({ data }: SunburstProps) {
 
     const group = svg
       .append("g")
+      .attr("class", "main-group")
       .attr(
         "transform",
         `translate(${width / 2}, ${height / 2})`,
@@ -184,7 +233,7 @@ export default function Sunburst({ data }: SunburstProps) {
 
     const center = group
       .append("g")
-      .attr("cursor", focus === root ? "default" : "pointer")
+      .attr("cursor", "pointer")
 
     center
       .append("circle")
@@ -240,36 +289,61 @@ export default function Sunburst({ data }: SunburstProps) {
                 node.depth > focus.depth,
             )
 
-    // -----------------------------------------
-    // ARCS
-    // -----------------------------------------
+// -----------------------------------------
+// ARCS
+// -----------------------------------------
+const paths = group
+  .selectAll<
+    SVGPathElement,
+    d3.HierarchyRectangularNode<Theme>
+  >("path.arc")
+  .data(
+    visibleNodes,
+    (node) => node.data.name,
+  )
+  .join("path")
+  .attr("class", "arc")
+  .attr("d", arc)
+  .attr("fill", (node) => getColor(node))
+  .attr("stroke", "white")
+  .attr("stroke-width", 2)
+  .attr(
+    "cursor",
+    (node) =>
+      node.depth === 1 || node.depth === 2
+        ? "pointer"
+        : "default",
+  )
 
-    const paths = group
-      .selectAll<
-        SVGPathElement,
-        d3.HierarchyRectangularNode<Theme>
-      >("path.arc")
-      .data(
-        visibleNodes,
-        (node) => node.data.name,
-      )
-      .join("path")
-      .attr("class", "arc")
-      .attr("d", arc)
-      .attr("fill", (node) => getColor(node))
-      .attr("stroke", "white")
-      .attr("stroke-width", 2)
-      .attr("cursor", (node) =>
-        node.depth === 1 ? "pointer" : "default",
-      )
 
-    // Click only on main themes
-    paths.on("click", (_, node) => {
-      if (node.depth === 1) {
-        console.log("Focus:", node.data.name)
-        setFocusName(node.data.name)
-      }
-    })
+// animation SEULEMENT ici
+paths
+  .attr("opacity", 0)
+  .transition()
+  .duration(700)
+  .ease(d3.easeCubicOut)
+  .attr("opacity", 1)
+
+
+// CLICK EN DEHORS DE LA TRANSITION
+paths.on("click", (_, node) => {
+
+  if (node.depth === 1) {
+
+    console.log("Focus:", node.data.name)
+
+    setFocusName(node.data.name)
+
+    return
+  }
+
+  if (node.depth === 2) {
+
+    onSelect(node.data)
+
+  }
+
+})
 
     // -----------------------------------------
     // LABELS
@@ -358,24 +432,45 @@ export default function Sunburst({ data }: SunburstProps) {
       })
     })
 
-    // Click only on main theme labels
-    labels.on("click", (_, node) => {
-      if (node.depth === 1) {
-        console.log("Focus:", node.data.name)
-        setFocusName(node.data.name)
-      }
-    })
-  }, [data, focusName])
+  // Click only on main theme labels
+ labels.on("click", (_, node) => {
 
-  return (
-    <svg
-      ref={svgRef}
-      style={{
-        width: "100%",
-        height: "auto",
-        display: "block",
-      }}
-    />
-  )
+
+  if (node.depth === 1) {
+    console.log("Focus:", node.data.name)
+    setFocusName(node.data.name)
+    return
+  }
+
+  if (node.depth === 2) {
+    onSelect(node.data)
+  }
+
+})
+
+
+}, [data, focusName])
+
+
+return (
+
+  <svg
+
+    ref={svgRef}
+
+    style={{
+
+      width: "100%",
+
+      height: "auto",
+
+      display: "block",
+
+    }}
+
+  />
+
+)
+
 }
 
