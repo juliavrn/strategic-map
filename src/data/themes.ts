@@ -3,7 +3,7 @@ import type { Theme } from "../types"
 export const themes: Theme = {
   id: "mapa",
 
-  name: "MAPA",
+  name: "Mapa",
 
   description:
     "Interactive overview of the main strategic areas and indicators.",

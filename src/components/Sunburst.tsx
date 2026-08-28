@@ -140,7 +140,6 @@ export default function Sunburst({
 }
 
 
-
   useEffect(() => {
     if (!svgRef.current) return
 
@@ -171,7 +170,69 @@ if (!rootGroup.empty()) {
 
     partition(root)
 
-    // We only allow MAPA or a main theme as the focus.
+    const mainThemes = root.children ?? []
+
+    const layoutChildren = (
+  parent: d3.HierarchyRectangularNode<Theme>,
+  startAngle: number,
+  endAngle: number,
+) => {
+  const children = parent.children ?? []
+
+  if (children.length === 0) return
+
+  const totalValue = children.reduce(
+    (sum, child) => sum + (child.value ?? 0),
+    0,
+  )
+
+  let currentAngle = startAngle
+
+  children.forEach((child) => {
+    const proportion =
+      totalValue > 0
+        ? (child.value ?? 0) / totalValue
+        : 1 / children.length
+
+    const childStart = currentAngle
+    const childEnd =
+      childStart +
+      (endAngle - startAngle) * proportion
+
+    child.x0 = childStart
+    child.x1 = childEnd
+
+    layoutChildren(
+      child,
+      childStart,
+      childEnd,
+    )
+
+    currentAngle = childEnd
+  })
+}
+
+mainThemes.forEach((theme, index) => {
+  const startAngle =
+    (index / mainThemes.length) *
+    2 *
+    Math.PI
+
+  const endAngle =
+    ((index + 1) / mainThemes.length) *
+    2 *
+    Math.PI
+
+  theme.x0 = startAngle
+  theme.x1 = endAngle
+
+  layoutChildren(
+    theme,
+    startAngle,
+    endAngle,
+  )
+})
+
     const focus =
       focusName === null
         ? root
@@ -239,8 +300,6 @@ if (!rootGroup.empty()) {
       .append("circle")
       .attr("r", radius * 0.18)
       .attr("fill", "white")
-      .attr("stroke", "#e5e7eb")
-      .attr("stroke-width", 2)
 
     center
       .append("text")
@@ -250,7 +309,7 @@ if (!rootGroup.empty()) {
       .attr("font-weight", "600")
       .text(
         focus === root
-          ? "MAPA"
+          ? "Mapa"
           : focus.data.name,
       )
 
@@ -399,41 +458,190 @@ paths.on("click", (_, node) => {
         `
       })
 
-    // -----------------------------------------
-    // LABEL CONTENT
-    // -----------------------------------------
+// -----------------------------------------
+// LABEL CONTENT
+// -----------------------------------------
 
-    labels.each(function (node) {
-      const text = d3.select(this)
 
-      const maxCharacters =
-        node.depth === 1 ? 18 : 14
+labels.each(function (node) {
+  const text = d3.select(this)
 
-      const lines = wrapText(
-        node.data.name,
-        maxCharacters,
-      )
+  text.selectAll("tspan").remove()
 
-      const lineHeight =
-        node.depth === 1 ? 14 : 12
 
-      const startY =
-        -((lines.length - 1) * lineHeight) / 2
+  const startAngle =
+    ((node.x0 - focus.x0) / focusAngleSize) *
+    2 *
+    Math.PI
 
-      lines.forEach((line, index) => {
-        text
-          .append("tspan")
-          .attr("x", 0)
-          .attr(
-            "y",
-            startY + index * lineHeight,
-          )
-          .text(line)
-      })
+  const endAngle =
+    ((node.x1 - focus.x0) / focusAngleSize) *
+    2 *
+    Math.PI
+
+  const middleAngle =
+    (startAngle + endAngle) / 2
+
+  const labelRadius =
+    (Math.max(0, node.y0 - focusRadiusStart) +
+      Math.max(
+        0,
+        node.y1 - focusRadiusStart,
+      )) /
+    2
+
+  const availableWidth =
+    2 *
+    labelRadius *
+    Math.sin(
+      Math.min(
+        endAngle - startAngle,
+        Math.PI,
+      ) / 2,
+    )
+
+  /*
+   * Main themes have more space.
+   * Sub-themes use a smaller initial font.
+   */
+  let fontSize =
+    node.depth === 1 ? 13 : 10
+
+  const minimumFontSize =
+    node.depth === 1 ? 11 : 7
+
+  const horizontalPadding =
+    node.depth === 1 ? 16 : 10
+
+  const maxWidth = Math.max(
+    20,
+    availableWidth - horizontalPadding,
+  )
+
+  /*
+   * Split the name into words.
+   */
+  const words = node.data.name.split(" ")
+
+  let lines: string[] = []
+
+  /*
+   * Build the text using the actual SVG
+   * text measurement.
+   */
+  const buildLines = () => {
+    lines = []
+
+    let currentLine = ""
+
+    words.forEach((word) => {
+      const testLine = currentLine
+        ? `${currentLine} ${word}`
+        : word
+
+      const testTspan = text
+        .append("tspan")
+        .attr("x", 0)
+        .text(testLine)
+
+      const width =
+        testTspan.node()?.getComputedTextLength() ?? 0
+
+      testTspan.remove()
+
+      if (
+        !currentLine ||
+        width <= maxWidth
+      ) {
+        currentLine = testLine
+      } else {
+        lines.push(currentLine)
+        currentLine = word
+      }
     })
 
+    if (currentLine) {
+      lines.push(currentLine)
+    }
+  }
+
+  /*
+   * Try progressively smaller font sizes
+   * until the complete label fits.
+   *
+   * We NEVER truncate the text.
+   */
+  while (fontSize >= minimumFontSize) {
+    text.attr(
+      "font-size",
+      `${fontSize}px`,
+    )
+
+    buildLines()
+
+    const longestLineWidth = Math.max(
+      ...lines.map((line) => {
+        const tspan = text
+          .append("tspan")
+          .attr("x", 0)
+          .text(line)
+
+        const width =
+          tspan.node()?.getComputedTextLength() ?? 0
+
+        tspan.remove()
+
+        return width
+      }),
+    )
+
+    /*
+     * Maximum two lines for readability.
+     */
+    if (
+      longestLineWidth <= maxWidth &&
+      lines.length <= 2
+    ) {
+      break
+    }
+
+    fontSize -= 0.5
+  }
+
+  /*
+   * Rebuild the final label.
+   */
+  text
+    .attr(
+      "font-size",
+      `${Math.max(fontSize, minimumFontSize)}px`,
+    )
+
+  text.selectAll("tspan").remove()
+
+  const lineHeight =
+    node.depth === 1
+      ? fontSize + 2
+      : fontSize + 2
+
+  const startY =
+    -((lines.length - 1) * lineHeight) / 2
+
+  lines.forEach((line, index) => {
+    text
+      .append("tspan")
+      .attr("x", 0)
+      .attr(
+        "y",
+        startY + index * lineHeight,
+      )
+      .text(line)
+  })
+})
+
+
   // Click only on main theme labels
- labels.on("click", (_, node) => {
+labels.on("click", (_, node) => {
 
 
   if (node.depth === 1) {
@@ -459,13 +667,9 @@ return (
     ref={svgRef}
 
     style={{
-
       width: "100%",
-
       height: "auto",
-
       display: "block",
-
     }}
 
   />
