@@ -300,6 +300,21 @@ const paths = group
         ? "pointer"
         : "default",
   )
+  .on("mouseenter", function () {
+    d3.select(this)
+      .transition()
+      .duration(150)
+      .attr("fill", function () {
+        const currentColor = d3.select(this).attr("fill")
+        return d3.color(currentColor)?.brighter(0.5)?.formatHex() ?? currentColor
+      })
+  })
+  .on("mouseleave", function (_, node) {
+    d3.select(this)
+      .transition()
+      .duration(150)
+      .attr("fill", getColor(node))
+  })
 
 
 // animation SEULEMENT ici
