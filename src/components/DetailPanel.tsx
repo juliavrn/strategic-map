@@ -45,29 +45,31 @@ export default function DetailPanel({
           {node.name}
         </h2>
 
-        {node.image && (
-          <img
-            className="detail-panel__image"
-            src={node.image}
-            alt={node.name}
-          />
-        )}
+        {node.sections?.map((section) => (
+          <section
+            key={section.title}
+            className="detail-panel__section"
+          >
+            <h3 className="detail-panel__section-title">
+              {section.title}
+            </h3>
 
-        <p className="detail-panel__description">
-          {node.description}
-        </p>
+            {section.items.map((item) => (
+              <article
+                key={item.title}
+                className="detail-panel__item"
+              >
+                <h4 className="detail-panel__item-title">
+                  {item.title}
+                </h4>
 
-        {node.objectives && (
-          <section className="detail-panel__objectives">
-            <h3>Strategic objectives</h3>
-
-            <ul>
-              {node.objectives.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+                <p className="detail-panel__item-description">
+                  {item.description}
+                </p>
+              </article>
+            ))}
           </section>
-        )}
+        ))}
       </motion.aside>
     </>
   )

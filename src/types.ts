@@ -1,13 +1,17 @@
+export interface ContentItem {
+  title: string
+  description: string
+}
+
+export interface ContentSection {
+  title: string
+  items: ContentItem[]
+}
+
 export interface Theme {
-  id: string
+  id?: string
   name: string
-  description?: string
   value?: number
-  image?: string
-  objectives?: string[]
-  links?: {
-    title: string
-    url: string
-  }[]
+  sections?: ContentSection[]
   children?: Theme[]
 }

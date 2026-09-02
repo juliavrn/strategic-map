@@ -1,0 +1,1325 @@
+{
+  "id": "mapa",
+  "name": "MAPA",
+  "children": [
+    {
+      "id": "01",
+      "name": "Ambiente de Negócios",
+      "children": [
+        {
+          "id": "01-01",
+          "name": "Ambiente Regulatório",
+          "value": 1,
+          "sections": [
+            {
+                "title": "Melhorar a qualidade regulatória",
+                "items": [
+                {
+                    "title": "Articulação institucional e integração regulatória",
+                    "description": "integrar sistemas entre órgãos municipais, estaduais e federais; criar fórum permanente FIEPA–SEMAS–SEDOP; articular com federações da Amazônia Legal a avaliação técnica de projetos de lei; identificar sobreposições indevidas de competências; incluir o setor produtivo nos processos de elaboração e revisão regulatória."
+                },
+                {
+                    "title": "Previsibilidade e segurança jurídica regulatória",
+                    "description": "realizar Análise de Impacto Regulatório (AIR); instituir prazo mínimo de anterioridade para atos normativos ambientais; criar zonas de sandbox jurídico com tributação diferenciada para empresas de base tecnológica."
+                },
+                {
+                    "title": "Simplificação e orientação ao setor produtivo",
+                    "description": "disponibilizar guias simplificados de conformidade regulatória; desenvolver políticas de associativismo em zonas especiais de produção."
+                }
+                ]
+            },
+            {
+                "title": "Aperfeiçoar os procedimentos administrativos",
+                "items": [
+                {
+                    "title": "Digitalização administrativa",
+                    "description": "criar consórcios intermunicipais de governo digital; ampliar processos digitais nas interações setor produtivo–órgãos públicos; ampliar processos regulatórios simplificados para atividades de menor impacto."
+                },
+                {
+                    "title": "Capacitação e inovação institucional",
+                    "description": "capacitar lideranças sindicais em gestão de processos e conformidade digital; implantar contratação pública de startups via Lei Inova Simples."
+                }
+                ]
+            }
+          ]
+        },
+        {
+          "id": "01-02",
+          "name": "Segurança Jurídica",
+          "value": 1,
+          "sections": [
+            {
+                "title": "Elevar a segurança jurídica",
+                "items": [
+                {
+                    "title": "Monitoramento e prevenção de controvérsias",
+                    "description": "criar observatório de contratos, concessões, normas e decisões judiciais que impactam a indústria; criar comitê técnico de prevenção de controvérsias regulatórias, territoriais, ambientais e logísticas."
+                },
+                {
+                    "title": "Padronização e celeridade processual",
+                    "description": "apoiar a celeridade de processos e execuções judiciais; uniformizar a contagem de prazos administrativos (Lei nº 9.872/2020)."
+                },
+                {
+                    "title": "Orientação para licenciamento e regularização",
+                    "description": "desenvolver guias integrados para regularização e licenciamento de polos industriais e corredores logísticos, compatibilizados com os eixos estratégicos de desenvolvimento."
+                }
+                ]
+            },
+            {
+                "title": "Aumentar a efetividade dos mecanismos alternativos de resolução de conflito",
+                "items": [
+                {
+                    "title": "Fortalecimento de mediação e arbitragem",
+                    "description": "digitalizar processos trabalhistas e criar varas empresariais; disseminar mediação, conciliação e arbitragem; institucionalizar câmaras de mediação e arbitragem; introduzir normas de consensualidade que considerem o perfil do contribuinte."
+                }
+                ]
+            }
+          ]
+        },
+        {
+          "id": "01-03",
+          "name": "Governança",
+          "value": 1,
+          "sections": [
+            {
+                "title": "Melhorar a eficácia do setor público",
+                "items": [
+                {
+                    "title": "Governança institucional e diálogo público-privado",
+                    "description": "criar índice de governança municipal; fortalecer o diálogo entre setor industrial, Judiciário, Ministério Público e Executivo estadual; regionalizar indicadores nacionais de competitividade; instituir governança estadual permanente para o ambiente de negócios; priorizar políticas em cadeias produtivas de maior densidade territorial."
+                }
+                ]
+            },
+            {
+                "title": "Ampliar a transparência do poder público",
+                "items": [
+                {
+                    "title": "Transparência e controle social",
+                    "description": "consolidar plataforma única de exigências de formalização e licenciamento; ampliar o acesso a dados públicos via Lei de Acesso à Informação; incentivar a participação de organismos de controle social; promover debates técnico-científicos para reduzir a polarização nas decisões públicas."
+                }
+                ]
+            },
+            {
+                "title": "Aperfeiçoar a governança corporativa e do sistema de compliance no setor privado",
+                "items": [
+                {
+                    "title": "Fortalecimento de compliance e integridade",
+                    "description": "consolidar rede estadual de compliance com certificação; criar prêmio estadual de boas práticas em compliance e ESG; promover formação em governança corporativa e gestão de riscos; adaptar instrumentos de integridade à realidade de micro, pequenas e médias indústrias."
+                }
+                ]
+            },
+            {
+                "title": "Fortalecer e melhorar os mecanismos de combate à corrupção",
+                "items": [
+                {
+                    "title": "Integridade e combate à corrupção",
+                    "description": "integrar o setor industrial ao Comitê Pró-Ética da CGU; monitorar e disseminar estudos sobre impactos econômicos da corrupção; incentivar códigos de conduta e canais de denúncia; ampliar a rastreabilidade em contratações e concessões."
+                }
+                ]
+            }
+          ]
+        },
+        {
+          "id": "01-04",
+          "name": "Desburocratização",
+          "value": 1,
+          "sections": [
+            	{
+                "title": "Reduzir o excesso de procedimentos burocráticos que afetam o ambiente de negócios",
+                "items": [
+                {
+                    "title": "Simplificação normativa e digitalização integrada",
+                    "description": "simplificar e racionalizar normas de regulamentação; modernizar e integrar sistemas de informação entre municípios e estado; implementar o Balcão Único Digital para licenciamentos, alvarás e outorgas; realizar levantamento sistemático de gargalos administrativos; apoiar consórcios de desburocratização."
+                }
+                ]
+            },
+            {
+                "title": "Apoiar o avanço da estratégia de governo digital",
+                "items": [
+                {
+                    "title": "Governo digital e participação do setor produtivo",
+                    "description": "ampliar infraestrutura tecnológica e portfólio de serviços online; ampliar a participação do setor industrial nas decisões sobre a agenda de governo digital; dar suporte à aplicação da Lei Complementar nº 123 (Estatuto ME/EPP)."
+                }
+                ]
+            }
+          ]
+        },
+        {
+          "id": "01-05",
+          "name": "Segurança Pública e Defesa do Estado",
+          "value": 1,
+          "sections": [
+            	{
+                "title": "Reduzir custos sociais e econômicos decorrentes da insegurança pública",
+                "items": [
+                {
+                    "title": "Combate ao crime organizado e proteção de ativos industriais",
+                    "description": "implementar painel estratégico de segurança produtiva; mapear a presença do crime organizado nos setores industriais; realizar ações de combate a falsificações, mineração ilegal e crimes ambientais; criar grupo estadual de combate a crimes contra o setor industrial; fortalecer a segurança de áreas industriais e portuárias."
+                }
+                ]
+            },
+            {
+                "title": "Reduzir o número de roubos de carga",
+                "items": [
+                {
+                    "title": "Segurança logística e monitoramento de cargas",
+                    "description": "criar sistema integrado de informações com Polícia Rodoviária Federal e Polícia Civil; apoiar tecnologias de monitoramento de cargas; ampliar monitoramento e patrulhamento em corredores logísticos estratégicos."
+                }
+                ]
+            },
+            {
+                "title": "Aumentar a cibersegurança no Brasil",
+                "items": [
+                {
+                    "title": "Segurança patrimonial e integração com a defesa nacional",
+                    "description": "regulamentar o uso de drones e sistemas de vigilância; acompanhar o debate federal sobre defesa do Estado na Amazônia Legal; elaborar planos de continuidade de negócios com a Defesa Civil; disseminar boas práticas em segurança patrimonial; inserir fornecedores locais nas cadeias de suprimento das Forças Armadas."
+                }
+                ]
+            },
+            {
+                "title":"Aumentar a capacidade de defesa nacional",
+                "items": [
+                {
+                    "title": "Segurança patrimonial e integração com a defesa nacional",
+                    "description": "regulamentar o uso de drones e sistemas de vigilância; acompanhar o debate federal sobre defesa do Estado na Amazônia Legal; elaborar planos de continuidade de negócios com a Defesa Civil; disseminar boas práticas em segurança patrimonial; inserir fornecedores locais nas cadeias de suprimento das Forças Armadas."
+                }
+                ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "name": "Ambiente Econômico",
+      "children": [
+        {
+          "id": "02-01",
+          "name": "Macroeconomia e Investimento",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Aumentar o nível de emprego",
+              "items": [
+              {
+                  "title": "Geração de emprego qualificado",
+                  "description": "expandir programas de apoio a startups voltados à geração de empregos qualificados; fomentar a contratação de jovens via aprendizagem; criar hubs de empregabilidade digital em municípios do interior; implementar programas de qualificação profissional para as principais cadeias produtivas locais."
+              }
+              ]
+            },
+            {
+              "title": "Assegurar a estabilidade de preços de forma compatível com uma trajetória decrescente da taxa de juros",
+              "items": [
+              {
+                  "title": "Fortalecimento de cadeias produtivas locais",
+                  "description": "desenvolver políticas industriais regionais que reduzam a dependência de insumos externos e a volatilidade de preços; promover arranjos de compartilhamento de infraestrutura entre startups e indústrias; acompanhar a demanda e oferta de produtos sensíveis a variações cambiais."
+              }
+              ]
+            },
+            {
+              "title": "Alcançar a sustentabilidade fiscal",
+              "items": [
+                {
+                  "title": "Modernização da gestão fiscal e formalização",
+                  "description": "promover eficiência da gestão pública via soluções GovTech/FiscalTech; desenvolver modelos de concessão e PPP para infraestrutura de inovação; criar zonas de sandbox jurídico tributário; incentivar a regularização da cobrança de tributos municipais e estaduais; formalizar atividades econômicas irregulares."
+                }
+              ]
+            },
+            {
+              "title": "Aumentar investimentos públicos e privados",
+              "items": [
+                {
+                  "title": "Atração de investimentos e promoção internacional",
+                  "description": "desenvolver política de atração de investimentos além dos incentivos de ICMS; promover roadshows internacionais; mapear editais federais (como Finep) com foco na região Norte."
+                },
+                {
+                  "title": "Instrumentos financeiros para inovação",
+                  "description": "articular linhas de investimento com contrapartidas ESG e fundo soberano para inovação; estruturar fundo de venture capital regional; criar fundos de desenvolvimento local com recursos de royalties de grandes projetos."
+                },
+                {
+                  "title": "Incentivos vinculados a desenvolvimento",
+                  "description": "estruturar monitoramento da situação fiscal do Estado; atrelar incentivos fiscais ao desenvolvimento de fornecedores locais, formação profissional e pesquisa aplicada; incrementar incentivos a empreendimentos com externalidades sociais positivas."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "02-02",
+          "name": "Financiamento",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Reduzir o custo de financiamento",
+              "items": [
+              {
+                  "title": "Instrumentos de crédito diferenciado",
+                  "description": "criar linhas de crédito com taxas diferenciadas para empresas inovadoras na Amazônia; criar Fundo de Aval em parceria com SEBRAE e BNDES; implementar debêntures de impacto e títulos verdes; destinar recursos de fundos públicos com taxas subsidiadas; fomentar cooperativas de crédito."
+              }
+              ]
+            },
+            {
+              "title": "Aumentar a disponibilidade e a oferta de crédito bancário",
+              "items": [
+              {
+                  "title": "Modernização do acesso ao crédito bancário",
+                  "description": "elaborar fundos garantidores para acesso ao crédito FNO/BASA; desenvolver parcerias entre fintechs, bancos e agências de fomento; ampliar e reformular as linhas FNO Inovação; criar consórcios entre startups para acesso coletivo ao crédito; simplificar o acesso ao crédito junto a bancos e agências de fomento."
+              }
+              ]
+            },
+            {
+             "title": "Melhorar as condições de crédito para micro, pequenas e médias empresas",
+             "items": [
+                {
+                  "title": "Acesso facilitado e diversificação de fontes",
+                  "description": "instituir encontros periódicos entre bancos, agências de fomento e PMEs; diversificar fontes de financiamento junto a bancos internacionais e fundos multilaterais; expandir o Inova Simples; criar mecanismo de acesso ao crédito para PMEs com restrições cadastrais."
+                },
+                {
+                  "title": "Instrumentos inovadores de garantia",
+                  "description": "ampliar instrumentos de financiamento sustentável via fundos climáticos e Fundo Amazônia; promover garantias alternativas (propriedade intelectual, contratos futuros, créditos de carbono); desenvolver plataforma de matchmaking entre investidores-anjo e startups; incluir compartilhamento de infraestrutura laboratorial das universidades federais."
+                }
+              ]
+            },
+            {
+              "title": "Aumentar a disponibilidade e a oferta de crédito não bancário",
+              "items": [
+              {
+                "title": "Expansão do crédito não bancário",
+                "description": "mobilizar recursos de fundos internacionais de impacto; ampliar a rede de fundos de investimento voltados à inovação e à sociobioeconomia (como o Fundo Travessias)."
+              }
+              ]
+            },
+            {
+              "title": "Aumentar a destinação de recursos dos Fundos Constitucionais de Financiamento (FCFs) para a indústria",
+              "items": [
+              {
+                "title": "Ampliação e transparência dos FCFs",
+                "description": "revisar critérios e exigências do FNO com o Banco da Amazônia e a SUDAM; criar subprograma no FCF Norte para atividades inovadoras; monitorar e publicar relatório anual sobre a aplicação do FNO."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "02-03",
+          "name": "Tributação",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Alinhar a tributação do consumo às melhores práticas internacionais, com a adoção de um modelo IVA",
+              "items": [
+              {
+                "title": "Preparação e monitoramento da transição tributári",
+                "description": "capacitar empresas sobre a Reforma Tributária; instituir observatório da Reforma Tributária para monitorar a transição IBS/CBS; projetar impactos do fim dos incentivos da SEDEME; monitorar a regulamentação do Fundo de Desenvolvimento Regional e do Fundo de Compensações."
+              }
+              ]
+            },
+            {
+                "title": "Reduzir a diferença entre a participação da indústria na arrecadação de tributos sobre o consumo e a participação da indústria no PIB",
+                "items": [
+                {
+                  "title": "Isonomia tributária e proteção do capital de giro",
+                  "description": "propor alíquota reduzida de IBS/CBS para serviços que contribuam para a produtividade industrial; resolver distorções do ICMS durante a transição; negociar redução do impacto do split payment sobre o caixa da indústria; garantir tratamento do crédito pré-operacional para indústrias de ciclo longo; articular regime tributário para a Amazônia Legal equivalente à Zona Franca de Manaus."
+                }
+                ]
+            },
+            {
+              "title": "Reduzir a tributação da renda corporativa",
+              "items": [
+              {
+                "title": "Incentivos fiscais à inovação",
+                "description": "ampliar a Lei do Bem para empresas do Norte; propor isenção de impostos por 5 anos para empresas inovadoras e de impacto social; criar regime tributário especial para empresas de inovação; elaborar guias sobre regimes especiais (RECOF, REPORTO, REIDI); corrigir distorções na base de cálculo do IPTU sobre imóveis em distritos industriais."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "02-04",
+          "name": "Desenvolvimento Regional",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Reduzir as desigualdades regionais de desenvolvimento humano",
+              "items": [
+              {
+                "title": "Financiamento regional via royalties",
+                "description": "elaborar fundo de royalties de grandes projetos para infraestrutura e educação; aperfeiçoar a governança do fundo de royalties minerais (SEFEM) e do Startup Pará."
+              },
+              {
+                "title": "Inclusão produtiva e capacitação territorial",
+                "description": "desenvolver programas de inserção de populações vulneráveis no mercado industrial; implementar letramento digital em comunidades ribeirinhas; criar cursos técnicos com universidades; desenvolver indicadores de impacto social; articular o 'fator amazônico' nos editais federais de CT&I."
+              }
+              ]
+            },
+            {
+              "title": "Reduzir as desigualdades de renda per capita entre os estados",
+              "items": [
+              {
+                "title": "Inteligência econômica e verticalização",
+                "description": "fortalecer o Observatório Econômico Estadual; estruturar programas com empresas-âncora para verticalização produtiva; promover a integração de cadeias e arranjos produtivos locais."
+              },
+              {
+                "title": "Atração de investimento e polos sustentáveis",
+                "description": " identificar territórios com potencial para hubs industriais sustentáveis; desenvolver proposta de corredor de indústria verde do Arco Norte; promover políticas de atração de empresas inovadoras; expandir programas de liderança jovem e empreendedorismo; mapear e dar visibilidade à bioeconomia."
+              }
+              ]
+            },
+            {
+              "title": "Reduzir as desigualdades regionais de renda",
+              "items": [
+              {
+                "title": "Economia criativa, circular e empreendedorismo territorial",
+                "description": "estruturar programas de distribuição de renda via economia criativa e digital; fomentar cooperativas de produção baseadas em economia circular; incluir indicadores de inovação no Plano Plurianual estadual; fomentar o empreendedorismo endógeno em territórios de baixa densidade econômica."
+              }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "name": "Baixo Carbono e Recursos Naturais",
+      "children": [
+        {
+          "id": "03-01",
+          "name": "Recursos Naturais",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Ampliar o uso sustentável da biodiversidade brasileira pela indústria",
+              "items": [
+              {
+                  "title": "Regularização, certificação e rastreabilidade da bioeconomia",
+                  "description": "realizar diagnóstico de indústrias sem cadastro no SISGEN; desenvolver certificação para produtos da sociobioeconomia; promover a rastreabilidade das cadeias produtivas da bioeconomia; implantar ações de combate ao garimpo e à exploração madeireira ilegal."
+              },
+              {
+                  "title": "Desenvolvimento produtivo e científico da sociobiodiversidade",
+                  "description": "criar políticas de repartição de benefícios da exploração da biodiversidade amazônica; estruturar ecossistema de uso sustentável integrando pesquisa pública e privada; facilitar o licenciamento de indústrias baseadas em recursos da biodiversidade; fomentar polos produtivos de escala; desdobrar o PlanBio em políticas e metas estratégicas."
+              }
+              ]
+            },
+            {
+              "title": "Contribuir para a segurança hídrica da indústria brasileira",
+              "items": [
+              {
+                  "title": "Gestão e segurança hídrica industrial",
+                  "description": "elaborar diagnóstico integral das vulnerabilidades hídricas do setor industrial; ampliar investimentos em saneamento básico; recuperar matas ciliares e áreas de recarga hídrica; implementar sistemas de monitoramento de efluentes e gestão de bacias; implementar programas de reuso e eficiência hídrica industrial."
+              }
+              ]
+            },
+            {
+              "title": "Aumentar a produção madeireira de manejo florestal sustentável",
+              "items": [
+              {
+                  "title": "Manejo florestal sustentável e cadeia madeireira",
+                  "description": "consolidar o Programa Paraense de Concessões Florestais; criar programa de crédito de carbono florestal articulado ao Sistema Brasileiro de Comércio de Emissões; fortalecer fiscalização e certificação da madeira legal; fortalecer fundos internacionais de conservação (como o TFFF); fortalecer a cadeia de transformação florestal e sua rastreabilidade digital."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "03-02",
+          "name": "Descarbonização",
+          "value": 1,
+          "sections": [
+          {
+            "title": "Reduzir a intensidade das emissões de gases de efeito estufa da indústria brasileira",
+            "items": [
+            {
+                "title": "Estruturação de mercado e política de descarbonização",
+                "description": "criar plataforma estadual de inventários de emissões; criar programa estadual de descarbonização industrial com metas próprias; monitorar projetos de lei que possam conflitar com o SBCE; fomentar o mercado local de créditos de carbono; promover tecnologias de captura de carbono e restauração florestal."
+            }
+            ]
+          },
+          {
+            "title": "Reduzir as emissões de gases de efeito estufa da indústria brasileira",
+            "items": [
+            {
+                "title": "Financiamento e marco regulatório da descarbonização",
+                "description": "aumentar investimentos públicos e privados em novas tecnologias; estruturar plano de destinação da Taxa Mineral e da Taxa de Recursos Hídricos para modernização industrial; revisar a Taxonomia Sustentável Brasileira adaptada à realidade amazônica."
+            }
+            ]
+          },
+          {
+            "title": "Aumentar os índices de eficiência energética na indústria",
+            "items": [
+            {
+                "title": "Eficiência energética industrial",
+                "description": "captar recursos de programas de eficiência energética com incentivos fiscais; ampliar programas voltados a pequenas e médias indústrias; oferecer suporte técnico a diagnósticos energéticos; disseminar sistemas de gestão de energia; modernizar parques industriais com motores de alta eficiência."
+            }
+            ]
+          },
+          {
+            "title": "Ampliar o uso de fontes renováveis de energia na indústria",
+            "items": [
+            {
+                "title": "Diversificação da matriz energética renovável",
+                "description": "elaborar diagnóstico do potencial da matriz energética estadual; desenvolver descarbonização logística via hidrovias; criar hubs de energia limpa; fomentar geração hidrelétrica e biometano em aterros sanitários; fomentar a substituição de combustíveis fósseis por biocombustíveis e hidrogênio verde."
+            }
+            ]
+
+          }
+          ]
+        },
+        {
+          "id": "03-03",
+          "name": "Economia Circular",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Melhorar a eficiência no uso dos recursos naturais com base nos princípios da economia circular",
+              "items": [
+              {
+                  "title": "Marco regulatório e cultura de economia circular",
+                  "description": "instituir Marco Regulatório Estadual de Economia Circular; fomentar redes de intercâmbio de resíduos entre polos industriais; promover a Rota de Maturidade de Economia Circular; capacitar indústrias para o ecodesign; fomentar a remanufatura e o reuso de componentes."
+              }
+              ]
+            },
+            {
+              "title": "Aumentar a recuperação de resíduos como recursos de valor",
+              "items": [
+              {
+                  "title": "Logística reversa e valorização de resíduos",
+                  "description": "estruturar programas de logística reversa com cooperativas de reciclagem; estruturar coleta seletiva para municípios ribeirinhos; desenvolver projeto de mineração urbana para extração de metais valiosos; promover o letramento e a disseminação de casos de sucesso em reaproveitamento."
+              }
+              ]
+            },
+            {
+              "title": "Universalizar a disposição adequada de resíduos sólidos não recuperáveis",
+              "items": [
+              {
+                  "title": "Universalização da destinação adequada de resíduos",
+                  "description": "desenvolver norma para resíduos de eventos climáticos; eliminar lixões e ampliar aterros sanitários conforme o PLANARES; criar centros de triagem e reciclagem de alta capacidade; incentivar o uso de resíduos como combustível alternativo; promover qualificação técnica para gestão de resíduos perigosos."
+              }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "name": "Comércio e Integração Internacional",
+      "children": [
+        {
+          "id": "04-01",
+          "name": "Competitividade do Comércio Exterior Brasileiro",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Aumentar a participação do Brasil nas exportações mundiais da indústria de transformação",
+              "items": [
+              {
+                  "title": "Agregação de valor e capacitação exportadora",
+                  "description": "promover a industrialização da bioeconomia e a agregação de valor aos produtos exportados; estruturar programa de formação e suporte a pequenas e médias empresas exportadoras; capacitar empresários para exigências do mercado internacional; realizar diagnóstico da pauta exportadora"
+              },
+              {
+                  "title": "Promoção comercial internacional",
+                  "description": "investir em missões internacionais e rodadas de negócios; promover a atração de compradores internacionais para produtos de maior valor agregado; disponibilizar informações que orientem decisões de comércio exterior."
+              }
+              ]
+            },
+            {
+              "title": "Ampliar o crédito à exportação",
+              "items": [
+              {
+                  "title": "Ampliação e modernização do crédito à exportação",
+                  "description": "modernizar e ampliar linhas de crédito oficial como o PROEX; mapear empresas com potencial exportador; criar linha estadual de crédito à exportação; viabilizar fundos específicos para cadeias produtivas estratégicas da bioeconomia."
+              }
+              ]
+            },
+            {
+              "title": "Reduzir o tempo médio de liberação das operações de comércio exterior",
+              "items": [
+              {
+                  "title": "Modernização logístico-aduaneira",
+                  "description": "modernizar a capacidade operacional e aduaneira dos portos locais; articular a implementação de Zonas de Processamento de Exportações; desenvolver projetos de integração logística multimodal; mobilizar empresas para adoção da Certificação de Origem Digital e do Portal Único de Comércio Exterior; melhorar a oferta de cabotagem."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "04-02",
+          "name": "Eliminação de Barreiras à Exportação",
+          "value": 1,
+          "sections": [
+          {
+              "title": "Monitorar a eficácia do sistema de eliminação e mitigação das medidas restritivas às exportações brasileiras",
+              "items": [
+              {
+                  "title": "Monitoramento e mitigação de barreiras comerciais",
+                  "description": "fortalecer o programa de monitoramento e eliminação de barreiras comerciais; articular um Plano de Desenvolvimento Ecológico-Econômico estadual; criar observatório de barreiras comerciais; oferecer suporte técnico a PMEs para exigências sanitárias e fitossanitárias; implementar rastreabilidade contra produtos informais e contrabandeados."
+              }
+              ]
+          },
+          {
+              "title": "Fortalecer diálogos bilaterais",
+              "items": [
+              {
+                  "title": "Diagnóstico técnico para diálogos bilaterais",
+                  "description": "produzir diagnósticos técnicos sobre impactos de medidas ambientais, tarifárias e regulatórias internacionais, subsidiando o posicionamento das entidades empresariais e da bancada parlamentar federal."
+              }
+              ]
+          }
+          ]
+        },
+        {
+          "id": "04-03",
+          "name": "Acordos Internacionais",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Ampliar e modernizar a rede brasileira de acordos de livre comércio",
+              "items": [
+              {
+                  "title": "Ampliação da rede de acordos comerciais",
+                  "description": "produzir estudos técnicos sobre acordos comerciais estratégicos; mobilizar a bancada parlamentar para acordos de facilitação de investimentos; promover a inserção do Pará em agendas do Mercosul; articular a criação de uma Zona de Livre Comércio da Amazônia com Suriname, Guiana e CARICOM."
+              }
+              ]
+            },
+            {
+              "title": "Concluir o acordo Mercosul – União Europeia",
+              "items": [
+              {
+                  "title": "Preparação empresarial para o Acordo Mercosul-UE",
+                  "description": "promover orientação e capacitação para empresas industriais sobre o acordo; mapear oportunidades de diversificação da pauta exportadora no mercado europeu."
+              }
+              ]
+            } 
+          ]
+        },
+        {
+          "id": "04-04",
+          "name": "Comércio Justo",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Neutralizar os efeitos na economia brasileira de subsídios ilegais e distorcivos em terceiros mercados",
+              "items": [
+              {
+                  "title": "Rastreabilidade e defesa comercial",
+                  "description": "estruturar sistemas de rastreabilidade de produtos da bioeconomia; produzir materiais técnicos com argumentos de comércio justo; articular ações de combate ao contrabando e à informalidade; implementar selos de origem e qualidade; defender a proteção regulatória de cadeias produtivas de alto valor bioativo."
+              }
+              ]
+            },
+            {
+              "title": "Apoiar certificações de comércio justo para produtos brasileiros",
+              "items": [
+              {
+                  "title": "Apoio à certificação de comércio justo",
+                  "description": "apoiar a certificação de comércio justo e sustentabilidade, integrando-a às estratégias de promoção comercial e conectando empresas e cooperativas a compradores internacionais."
+              }
+              ]
+            },
+            {
+              "title": "Fortalecer o Grupo de Inteligência de Comércio Exterior",
+              "items": [
+              {
+                  "title": "Inteligência de comércio exterior",
+                  "description": "desenvolver sistema de monitoramento de investigações comerciais internacionais sobre produtos exportados pelo estado, subsidiando a resposta a medidas antidumping e de salvaguarda."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "04-05",
+          "name": "Investimento Externo",
+          "value": 1,
+          "sections": [
+            {
+                "title": "Ampliar a rede brasileira de ACFIs",
+                "items": [
+                {
+                    "title": "Estrutura de atração de investimento estrangeiro",
+                    "description": "mapear e estruturar banco de oportunidades de investimento sustentável; apoiar a criação de agência de atração de investimentos independente da estrutura governamental; desenvolver pontos focais no exterior; estabelecer articulação entre entidades regionais e representações internacionais do Sistema Indústria."
+                }
+                ]
+            },
+            {
+                "title": "Ampliar e modernizar a rede brasileira de ADTs",
+                "items": [
+                {
+                    "title": "Acompanhamento de Acordos de Dupla Tributação",
+                    "description": "acompanhar e influenciar negociações de Acordos de Dupla Tributação com países europeus, asiáticos e do CARICOM."
+                }
+                ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "name": "Desenvolvimento Humano e Trabalho",
+      "children": [
+        {
+          "id": "05-01",
+          "name": "Relações de Trabalho",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Continuar a modernização das relações de trabalho",
+              "items": [
+              {
+                  "title": "Modernização institucional das relações de trabalho",
+                  "description": "estruturar ecossistema estadual de trabalho industrial; criar programa de assessoria em conformidade trabalhista para MPMEs; estruturar assessoria em negociação coletiva; criar fóruns tripartites de diálogo; mapear convenções coletivas setoriais da Amazônia."
+              }
+              ]
+            },
+            {
+              "title": "Melhorar a relação empregado-empregador",
+              "items": [
+              {
+                  "title": "Boas práticas e formalização",
+                  "description": "implantar programas de formalização para populações ribeirinhas, extrativistas e quilombolas; criar Selo de Boas Práticas Trabalhistas; implementar capacitação conjunta Empresa–Sindicato; criar espaços de desenvolvimento de ideias e inovação para colaboradores."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "05-02",
+          "name": "Saúde e Segurança",
+          "value": 1,
+          "sections": [
+          {
+            "title": "Promover a saúde e prevenção de doenças crônicas dos trabalhadores e da população em geral",
+            "items": [
+            {
+                "title": "Saúde preventiva e monitoramento ocupacional",
+                "description": "promover parcerias para expandir telessaúde e saúde itinerante; integrar setor privado e instituições de pesquisa em ações preventivas; expandir parcerias para imunização do trabalhador; implantar painel público de monitoramento de afastamentos médicos."
+            }
+          ]
+        },
+        {
+          "title": "Promover a segurança e saúde nos ambientes de trabalho",
+          "items": [
+          {
+              "title": "Gestão de riscos ocupacionais",
+              "description": "otimizar a gestão de saúde e segurança com sistemas inteligentes; capacitar lideranças em prevenção e conformidade normativa; desenvolver metodologias para riscos ocupacionais do ambiente amazônico; implementar protocolos de contingência para áreas de risco de inundação."          
+          }
+          ]
+        },
+        {
+          "title": "Promover o desenvolvimento competitivo de medicamentos, vacinas, testes, protocolos, equipamentos e serviços",
+          "items": [
+          {
+              "title": "Inovação tecnológica em saúde",
+              "description": "mapear e fomentar oportunidades de inovação em saúde, articulando parcerias com universidades e centros de inovação regionais."
+          }
+          ]
+        }
+        ]
+        },
+        {
+          "id": "05-03",
+          "name": "Previdência",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Promover a reabilitação profissional e readaptação dos trabalhadores",
+              "items": [
+              {
+                  "title": "Reabilitação e requalificação profissional",
+                  "description": "viabilizar convênios entre entidades de saúde do trabalhador e o INSS; desenvolver portal online de apoio à reabilitação; desenvolver cursos de requalificação em Indústria 4.0 adaptados a trabalhadores com mobilidade reduzida."
+              }
+              ]
+            },
+            {
+              "title": "Melhorar a governança do sistema de afastamentos",
+              "items": [
+              {
+                  "title": "Governança e prevenção de afastamentos",
+                  "description": "realizar diagnóstico do perfil previdenciário dos trabalhadores; criar programa de orientação jurídica e previdenciária; capacitar gestores sobre afastamento e reabilitação; implementar ferramentas de análise preditiva de afastamentos; firmar acordos com empresas para prevenção."
+              }
+              ]
+            },
+            {
+              "title": "Reduzir a judicialização para a concessão de aposentadoria especial",
+              "items": [
+              {
+                  "title": "Redução da judicialização previdenciária",
+                  "description": "articular apoio técnico junto ao Congresso sobre a eficácia dos EPIs; disseminar o entendimento do STJ (Tema 1090); coordenar a padronização de laudos técnicos (PPP e LTCAT); capacitar empresas na documentação de riscos ocupacionais; realizar campanhas educativas sobre ergonomia e aposentadoria especial."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "05-04",
+          "name": "Diversidade, Equidade e Inclusão",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Fomentar o compromisso das empresas com a promoção da diversidade, equidade e inclusão",
+              "items": [
+              {
+                  "title": "Reconhecimento e certificação de boas práticas",
+                  "description": "criar selo estadual de inclusão; estimular Prêmio Estadual da Indústria; criar convênio para certificação de ambiente organizacional acessível a MPMEs."
+              },
+              {
+                  "title": "Inclusão produtiva e acessibilidade",
+                  "description": "promover a inclusão de povos indígenas, quilombolas, ribeirinhos e extrativistas nas cadeias produtivas; apoiar políticas de acessibilidade e combate à discriminação; ampliar programas de aprendizagem para grupos minorizados; garantir instalações acessíveis para trabalhadores com deficiência."
+              },
+              {
+                  "title": "Diagnóstico, governança e disseminação",
+                  "description": "mapear a composição da força de trabalho por gênero, raça e deficiência; realizar eventos estaduais de diversidade, equidade e inclusão; criar comitês de diversidade; revisar políticas estaduais a partir das barreiras identificadas"
+              }
+              ]
+            },
+            {
+              "title": "Fomentar o compromisso das empresas com a promoção da equidade de gênero",
+              "items": [
+              {
+                  "title": "Equidade de gênero na indústria",
+                  "description": "desenvolver programas de formação de lideranças femininas; promover ações de prevenção ao assédio e à violência de gênero; criar Comitê de Liderança Feminina na Indústria; lançar compromisso público entre governo e indústria para metas de inclusão."
+              }
+              ]
+            },
+            {
+              "title": "Aumentar a participação de mulheres em áreas STEM",
+              "items": [
+              {
+                  "title": "Atração e mentoria de mulheres em STEM",
+                  "description": "ampliar programas de atração de meninas e jovens mulheres a cursos STEM; incentivar estágios e trainee técnico para mulheres; lançar rede de mentoria feminina em tecnologia e indústria."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "05-05",
+          "name": "Acesso à Cultura e ao Desporto",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Ampliar o acesso à cultura",
+              "items": [
+              {
+                  "title": "Fomento à cultura e à indústria criativa",
+                  "description": "mapear e reativar espaços culturais; criar programas de educação para a indústria criativa voltados a estudantes; implementar hub de aceleração da indústria criativa; promover capacitação e gestão cultural itinerante; articular incentivos fiscais culturais; fortalecer a formação técnica de agentes culturais."
+              }
+              ]
+            },
+            {
+              "title": "Ampliar a prática de atividades físicas",
+              "items": [
+              {
+                  "title": "Promoção de atividade física e esporte",
+                  "description": "ampliar programas de atividade física para trabalhadores e comunidades; utilizar eventos e festivais de engajamento social; incorporar soluções digitais de monitoramento; incluir o esporte infantojuvenil como ação social elegível."
+              }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "name": "Desenvolvimento Produtivo, Tecnologia e Inovação",
+      "children": [
+        {
+          "id": "06-01",
+          "name": "Desenvolvimento Produtivo",
+          "value": 1,
+          "sections": [
+          {
+              "title": "Conferir protagonismo à indústria no crescimento econômico brasileiro",
+              "items": [
+              {
+                  "title": "Política industrial e governança estratégica",
+                  "description": "estruturar política estadual de compras governamentais como instrumento de fomento industrial; modernizar incentivos fiscais estaduais conforme critérios socioambientais; criar leis municipais de isenção de ISS e IPTU para empresas de base tecnológica."
+              },
+              {
+                  "title": "Cadeias tecnológicas e sustentáveis estratégicas",
+                  "description": "incentivar cadeias produtivas baseadas em tecnologias verdes; desenvolver diretrizes que integrem metas climáticas e ODS; articular instrumentos para a fabricação de semicondutores e componentes eletrônicos estratégicos."
+              }
+              ]
+            },
+            {
+              "title": "Desenvolver a cadeia produtiva em setores estratégicos, mais complexos e intensivos em tecnologia",
+              "items": [
+              {
+                  "title": "Verticalização de cadeias produtivas estratégicas",
+                  "description": "verticalizar a cadeia mineral-metalúrgica; fortalecer incentivos à verticalização de cadeias intensivas em recursos naturais; criar centros tecnológicos de excelência para processamento da biodiversidade amazônica."
+              },
+              {
+                  "title": "Infraestrutura e logística para inovação produtiva",
+                  "description": "investir em hidrovias, portos regionais e armazenagem; expandir a infraestrutura de internet de alta velocidade em áreas industriais; articular a desoneração da importação de máquinas e equipamentos de alta precisão."
+              },
+              {
+                  "title": "Capacitação, fornecedores e tecnologia",
+                  "description": "estimular a qualificação da mão de obra técnica alinhada à densificação tecnológica; criar mecanismos que incentivem empresas-âncora a qualificar fornecedores locais; promover a adoção de tecnologias de manufatura avançada; incentivar a indústria local de hardware e IoT."
+              },
+              {
+                  "title": "Economia circular e sistema de inovação",
+                  "description": "fomentar o aproveitamento de resíduos industriais como insumos, com fórum e hub de inovação circular; modernizar e expandir o Sistema Estadual de Inovação do Pará (SECTET); mapear as cadeias da sociobioeconomia estadual."
+              }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "06-02",
+          "name": "Ciência, Tecnologia e Inovação",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Aumentar o investimento em inovação",
+                "items": [
+                {
+                    "title": "Financiamento e fundos para inovação",
+                    "description": "criar e fortalecer fundos estaduais de investimento voltados à inovação; facilitar o acesso de PMEs a editais de fomento; aumentar o valor e a oferta de bolsas de mestrado e doutorado; criar fundo regulado para pesquisa em setores estratégicos."
+                },
+                {
+                    "title": "Ecossistema de inovação e infraestrutura",
+                    "description": "estimular a criação e expansão de incubadoras, aceleradoras e parques tecnológicos; conectar o setor industrial a institutos de inovação regionais; implementar o Novo Marco Legal de Ciência, Tecnologia e Inovação."
+                },
+                {
+                    "title": "Pesquisa aplicada e atração tecnológica",
+                    "description": "fomentar pesquisas em sociobioeconomia e baixo carbono; atrair empresas de alta densidade tecnológica, aproveitando o potencial energético amazônico como vetor de PowerShoring industrial."
+                }
+                ]
+            },
+            {
+                "title": "Aperfeiçoar as políticas e regulamentações públicas de fomento à inovação",
+                "items": [
+                {
+                    "title": "Marco regulatório e governança da inovação",
+                    "description": "criar marco regulatório estadual de uso da biodiversidade; identificar e endereçar lacunas na Lei Estadual de Inovação; aperfeiçoar a governança do Fundo Estadual de Inovação; instituir fórum permanente de inovação com governança colegiada."
+                },
+                {
+                    "title": "Financiamento público e articulação federal",
+                    "description": "aprimorar a legislação de destinação de royalties minerais (CFEM) e hídricos para inovação; ampliar o acesso a recursos federais de fomento; considerar o 'fator amazônico' nos editais de CT&I; estender a Lei do Bem a empresas do Lucro Presumido."
+                },
+                {
+                    "title": "Ambiente regulatório experimental e inovação aberta",
+                    "description": "criar ambiente regulatório experimental (sandbox); ampliar programas de inovação aberta conectando grandes indústrias a startups."
+                }
+                ]
+              }
+          ]
+        },
+        {
+          "id": "06-03",
+          "name": "Produtividade e Inovação nas Empresas",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Aumentar a produtividade da indústria brasileira",
+                "items": [
+                {
+                    "title": "Programas de produtividade e extensão industrial",
+                    "description": "estruturar programa articulado ao Brasil Mais Produtivo e à Indústria 4.0 Amazônica; implementar programas de extensão industrial para MPMEs; implementar manufatura enxuta (Lean Manufacturing); estruturar capacitação em gestão de projetos (EGPs/PMOs)."
+                },
+                {
+                    "title": "Tecnologia, digitalização e sustentabilidade produtiva",
+                    "description": "modernizar a logística por digitalização e rastreabilidade; ampliar projetos de eficiência energética; ampliar parcerias com centros de pesquisa em bioeconomia e economia circular."
+                },
+                {
+                    "title": "Cooperação e escala produtiva",
+                    "description": "estabelecer redes de cooperação e clusters produtivos; criar ecossistema para atração de novas empresas e negócios industriais no Pará."
+                }
+                ]
+            },
+            {
+                "title": "Incentivar o registro de patentes",
+                "items": [
+                {
+                    "title": "Fortalecimento da propriedade intelectual industrial",
+                    "description": "mapear e formalizar ativos tecnológicos com auditorias de PI; estabelecer parcerias com o INPI; estruturar trilhas de capacitação e núcleo especializado em propriedade intelectual; estabelecer linhas de financiamento para depósito de patentes; ampliar o uso do Trâmite Prioritário do INPI."
+                }
+                ]
+            },
+            {
+              "title": "Promover a transformação digital na indústria",
+                "items": [
+                {
+                    "title": "Financiamento e infraestrutura para digitalização",
+                    "description": "criar linhas de crédito para modernização e digitalização; criar vouchers digitais para consultoria em digitalização; fortalecer laboratórios de teste e prototipagem."
+                },
+                {
+                    "title": "Capacitação e adoção de tecnologias digitais",
+                    "description": "desenvolver programas de letramento em sustentabilidade digital; disponibilizar consultoria para adoção de Inteligência Artificial; estruturar programa estadual de capacitação e adoção de IA com trilhas por nível hierárquico."
+                },
+                {
+                    "title": "Programas estruturantes de Indústria 4.0",
+                    "description": "criar programa de Indústria 4.0 adaptado à realidade amazônica; desenvolver plataformas digitais e marketplaces para produtos amazônicos; desburocratizar a instalação de infraestrutura 5G em polos industriais."
+                }
+                ]
+            },
+            {
+              "title": "Melhorar a qualidade da gestão empresarial do Brasil, com impactos positivos sobre a qualidade dos produtos",
+                "items": [
+                {
+                    "title": "Excelência em gestão e certificações",
+                    "description": "apoiar a obtenção de selos sustentáveis e certificações (ESG, ISO); implantar programas de excelência em gestão; estruturar trilhas de capacitação executiva em liderança e novos modelos de negócio; modernizar a governança corporativa em empresas familiares; integrar práticas ESG ao planejamento estratégico."
+                }
+                ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "name": "Educação",
+      "children": [
+        {
+          "id": "07-01",
+          "name": "Educação Básica",
+          "value": 1,
+          "sections": [
+          {
+              "title": "Elevar a qualidade da educação básica",
+              "items": [
+              {
+                  "title": "Fortalecimento pedagógico e cultura de inovação escolar",
+                  "description": "fomentar programas de iniciação científica, olimpíadas, robótica e cultura maker; estruturar o programa Mentes Criativas no Pará; fortalecer ações de alfabetização e recomposição de aprendizagens com a SEDUC; implementar projetos de aprendizagem conectados à realidade amazônica e industrial."
+              }
+          ]
+          },
+          {
+              "title": "Elevar a qualidade da gestão escolar",
+              "items": [
+              {
+                  "title": "Fortalecimento da gestão escolar",
+                  "description": "estabelecer cooperação técnica com as Secretarias de Educação; apoiar a formação e seleção de gestores escolares orientada por resultados; propor modelo de cogestão de escolas com o Sistema Indústria; estabelecer agenda de cooperação para escolas em áreas de maior vulnerabilidade."
+              }
+          ]
+          },
+         {
+              "title": "Aprimorar a formação inicial e continuada dos professores",
+              "items": [
+              {
+                  "title": "Formação docente alinhada à indústria",
+                  "description": "construir política de formação docente voltada a competências STEAM; ampliar núcleos regionais de capacitação; oferecer formação continuada em metodologias ativas com IFPA e Sistema S; promover vivências de professores em ambientes industriais."
+              }
+          ]
+          },
+            {
+              "title": "Ampliar as matrículas na EJA integrada à educação profissional",
+              "items": [
+              {
+                  "title": "Expansão da EJA profissionalizante",
+                  "description": "expandir a Nova EJA integrada ao SENAI; desenvolver trilhas de EJA vinculadas às cadeias produtivas do Pará; estabelecer parceria com o Ministério do Trabalho para encaminhar beneficiários do Bolsa Família; expandir a oferta em parceria com SESI, SENAI e SEDUC."
+              }
+          ]
+            },
+            {
+              "title": "Melhorar a infraestrutura das escolas de educação básica",
+              "items": [
+              {
+                  "title": "Modernização da infraestrutura escolar",
+                  "description": "apoiar tecnicamente a melhoria da infraestrutura e conectividade das escolas; mobilizar parcerias público-privadas para modernizar laboratórios, bibliotecas e ambientes maker."
+              }
+              ]
+            }
+        ]
+        },
+        {
+          "id": "07-02",
+          "name": "Educação Profissional e Superior",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Ampliar as matrículas no itinerário da formação técnica e profissional no ensino médio",
+              "items": [
+              {
+                  "title": "Expansão e atualização da formação técnica de nível médio",
+                  "description": "estruturar trilhas técnicas voltadas às demandas do Pará (bioeconomia, energia solar, automação); articular a expansão do SENAI nas escolas estaduais; integrar currículos da Educação Básica com a Educação Profissional; atualizar itinerários formativos com foco em Indústria 4.0."
+              }
+              ]
+            },
+            {
+              "title": "Ampliar o número de matrículas na educação profissional e tecnológica",
+              "items": [
+              {
+                  "title": "Ampliação do acesso e das modalidades de ensino",
+                  "description": "fortalecer plataformas digitais de qualificação com identidade regional; ampliar cursos e certificações com bolsas e vagas gratuitas; escalar ofertas educacionais híbridas e modularizadas; ampliar o uso de microcredenciais."
+              },
+              {
+                  "title": "Inclusão de públicos prioritários",
+                  "description": "desenvolver estratégias de captação para jovens, população 50+, mulheres e retornantes; desenvolver programas para populações indígenas, quilombolas e trabalhadores informais; integrar a educação profissional a políticas de inclusão produtiva."
+              },
+              {
+                  "title": "Infraestrutura e alinhamento setorial",
+                  "description": "modernizar laboratórios e ambientes de aprendizagem profissional; expandir matrículas em áreas prioritárias (mineração, construção civil, logística, agroindústria, bioeconomia); criar programa de capacitação para adequação ao CBAM europeu."
+              }
+              ]
+            },
+            {
+              "title": "Aumentar a participação de alunos em cursos de ciência, tecnologia, engenharia e matemática",
+              "items": [
+              {
+                  "title": "Atração e formação em STEM",
+                  "description": "ampliar a oferta de cursos superiores de tecnologia por plataformas digitais; estruturar programa de conexão entre pesquisadores e projetos de inovação em bioeconomia; criar programas de atração de estudantes para carreiras STEM; articular bolsas, mentorias e estágios de iniciação tecnológica."
+            
+              }
+              ]
+            },
+            {
+              "title": "Aprimorar o nível de educação executiva dos gestores",
+              "items": [
+              {
+                  "title": "Capacitação executiva e sucessão empresarial",
+                  "description": "estruturar Programa de Liderança para a Transição Justa na Amazônia; implementar programa de planejamento de sucessão empresarial para empresas familiares; oferecer programas para lideranças de MPMEs; promover mentoria entre executivos e universidades."
+              }
+              ]
+            },
+            {
+              "title": "Alinhar a educação profissional e superior às demandas do setor produtivo",
+              "items": [
+              {
+                  "title": "Governança de dados e alinhamento formação-mercado",
+                  "description": "integrar dados do Mapa do Trabalho Industrial e do Painel de Empregabilidade RAIS à oferta formativa; instituir comitês setoriais de educação e indústria; monitorar a empregabilidade de egressos; formar parcerias com programas de pós-graduação locais."
+              }
+              ]
+            },
+            {
+              "title": "Ampliar a participação de profissionais de nível técnico e superior (tecnologia e engenharia) na indústria",
+              "items": [
+              {
+                  "title": "Atração, retenção e valorização de talentos técnicos",
+                  "description": "desenvolver campanha permanente de valorização das carreiras industriais; repatriar profissionais técnicos e de engenharia; expandir programas de estágio, residência tecnológica e trainee; propor qualificação para a cadeia de óleo e gás da Margem Equatorial (modelo PROMINP); criar programa de retenção e repatriação de talentos técnicos paraenses."
+            
+              }
+              ]
+            },
+            {
+              "title": "Aumentar a taxa de efetivação dos aprendizes na indústria",
+              "items": [
+              {
+                  "title": "Fortalecimento da aprendizagem e transição escola-trabalho",
+                  "description": "estruturar programa de aprendizagem profissional nas principais cadeias produtivas; ampliar vagas com foco em ESG junto às indústrias signatárias da Jornada COP+; criar banco estadual de talentos da aprendizagem industrial; implementar programas de transição escola-trabalho."
+            
+              }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "name": "Infraestrutura",
+      "children": [
+        {
+          "id": "08-01",
+          "name": "Energia",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Garantir o fornecimento de energia elétrica a preços competitivos para a indústria",
+              "items":[
+                {
+                  "title":"Modernização e expansão da infraestrutura elétrica",
+                  "description": "modernizar redes de distribuição (smart grids); priorizar investimentos em linhas de transmissão e reforços estruturais; apoiar projetos de interligação de sistemas isolados na Amazônia; atrair investimentos via leilões de transmissão e PPPs."
+                },
+                {
+                  "title":"Diversificação e competitividade no mercado de energia",
+                  "description": "manter a autoprodução de energia renovável; incentivar a migração da indústria para o mercado livre de energia (ACL); estimular arranjos energéticos locais e cooperativas de consumo em condomínios industriais."
+                },
+                {
+                  "title":"Incentivos, financiamento e governança",
+                  "description": "criar programas estaduais de incentivo fiscal e modernização do setor elétrico; promover o uso do PlanBio como instrumento de acesso a crédito; destinar recursos da Taxa Mineral e Hídrica para modernização industrial; criar fórum permanente de monitoramento do plano de investimentos energéticos."
+                },
+                {
+                  "title":"Tecnologia, qualificação e novas fontes",
+                  "description": "promover a adoção de hidrogênio verde e biomassa para geração de energia; estruturar programa estadual de qualificação profissional para o setor energético; estruturar programa de eficiência energética nos polos produtivos."
+                }
+              ]
+            },
+            {
+              "title": "Garantir o fornecimento de gás natural a preços competitivos para a indústria",
+              "items":[
+                {
+                  "title":"Governança e marco regulatório do mercado de gás",
+                  "description": "criar instância de governança do Mercado Livre de Gás; revisar a legislação estadual do consumidor livre; estabelecer metas de melhoria regulatória (RELIVRE); padronizar contratos de uso do sistema de distribuição; garantir isonomia tarifária entre consumidores cativos e livres."
+                },
+                {
+                  "title":"Infraestrutura e expansão da oferta",
+                  "description": "mapear a demanda industrial âncora por região; avaliar soluções de gasoduto virtual e GNL para regiões sem rede dutoviária; integrar o planejamento da infraestrutura de gás natural aos portos, hidrovias e zonas industriais."
+                },
+                {
+                  "title":"Capacitação, competitividade e transição energética",
+                  "description": "desenvolver programas de capacitação técnica em aplicações industriais de gás natural; posicionar o gás natural como energia de transição; conectar a agenda do gás a projetos de cogeração e bioenergia; mapear o potencial de expansão do gás natural e sua inclusão na Taxonomia Sustentável Brasileira."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "08-02",
+          "name": "Transporte e Logística",
+          "value": 1,
+          "sections": [
+            {
+                "title": "Aumentar os investimentos em infraestrutura de transportes",
+                "items": [
+                {
+                    "title": "Corredores multimodais estratégicos",
+                    "description": "articular a inclusão dos projetos prioritários de infraestrutura logística do Pará no Plano Nacional de Logística; viabilizar as Hidrovias do Tajapós e do Tocantins e o derrocamento do Pedral do Lourenço; viabilizar os projetos da Ferrogrão e Norte-Sul; estruturar o projeto da Ferrovia Paraense (FEPASA)."
+                },
+                {
+                    "title": "Portos e infraestrutura offshore",
+                    "description": "mapear e defender novos projetos de infraestrutura portuária; desenvolver porto de águas profundas e base logística offshore para a Margem Equatorial; incentivar terminais privados de uso misto (TUPs) e hubs logísticos fluviais."
+                },
+                {
+                    "title": "Financiamento e governança de projetos",
+                    "description": "estruturar projetos de infraestrutura logística para atração de capital privado via PPPs e debêntures incentivadas; estabelecer governança integrada para destravar projetos paralisados por disputas judiciais ou ambientais; criar Selo Verde para projetos de infraestrutura."
+                },
+                {
+                    "title": "Integração territorial e infraestrutura de acesso",
+                    "description": "elaborar plano de investimento em infraestrutura viária rural para as cadeias da bioeconomia; estruturar distritos industriais como hubs logísticos de integração interregional; elaborar diagnóstico sobre o potencial de utilização de aeroportos regionais para carga."
+                }
+                ]
+            },
+            {
+                "title": "Modernizar a infraestrutura das rodovias",
+                "items": [
+                {
+                    "title": "Modernização e gestão inteligente da malha rodoviária",
+                    "description": "desenvolver plano estadual de modernização e manutenção da malha viária; implantar sistemas inteligentes de transporte nos corredores de carga; avançar com projetos de duplicação de rodovias federais estratégicas; estruturar plano de concessões de rodovias estaduais."
+                }
+                ]
+            },
+            {
+                "title": "Modernizar a infraestrutura de transportes aquaviários",
+                "items": [
+                {
+                    "title": "Modernização portuária e navegabilidade",
+                    "description": "ampliar e modernizar os portos estratégicos do estado, incluindo áreas de retroporto; estruturar plano permanente de dragagem, sinalização e monitoramento das hidrovias estratégicas."
+                }
+                ]
+            },
+            {
+                "title": "Melhorar a eficiência dos serviços logísticos",
+                "items": [
+                {
+                    "title": "Eficiência e inteligência logística",
+                    "description": "implantar hubs logísticos e plataformas multimodais nos polos industriais; promover a digitalização da cadeia logística; fomentar Estações de Transbordo de Carga em pontos estratégicos; implantar o Observatório de Infraestrutura e Logística; reduzir o tempo e os custos das operações aduaneiras."
+                }
+                ]
+            }
+          ]
+        },
+        {
+          "id": "08-03",
+          "name": "Mobilidade Urbana",
+          "value": 1,
+          "sections": [
+            {
+                "title": "Elevar a qualidade da mobilidade urbana – Investimento",
+                "items": [
+                {
+                    "title": "Investimento em transporte coletivo e gestão inteligente",
+                    "description": "investir em sistemas inteligentes de transporte (ITS); promover sistemas de transporte coletivo de alta capacidade (BRT, VLT); implantar faixas exclusivas para transporte coletivo; estruturar PPPs para modernização das frotas urbanas."
+                }
+                ]
+            },
+            {
+                "title": "Elevar a qualidade da mobilidade urbana – Planejamento",
+                "items": [
+                {
+                    "title": "Planejamento integrado e orientado por dados",
+                    "description": "planejar a mobilidade de cargas urbanas com corredores dedicados; elaborar Planos de Mobilidade em todos os municípios, incluindo o Plano Metropolitano da RMB; realizar planejamento orientado por dados e inteligência (big data); incentivar a adoção de combustíveis de menor emissão no transporte público."
+                }
+                ]
+            }
+          ]
+        },
+        {
+          "id": "08-04",
+          "name": "Saneamento",
+          "value": 1,
+          "sections": [
+            {
+                "title": "Aumentar a participação privada na prestação de serviços de saneamento para garantir os investimentos",
+                "items": [
+                {
+                    "title": "Ambiente regulatório e expansão de concessões",
+                    "description": "fortalecer o ambiente regulatório harmonizando agências reguladoras com o Novo Marco Legal (Lei nº 14.026/2020); incentivar soluções descentralizadas de baixo custo para municípios de menor porte; expandir os serviços concessionados para áreas de baixa atratividade econômica; promover o desenvolvimento da cadeia de fornecedores locais."
+                }
+                ]
+            },
+            {
+                "title": "Universalizar o acesso ao saneamento básico – Oferta de água potável",
+                "items": [
+                {
+                    "title": "Universalização do acesso à água potável",
+                    "description": "expandir a infraestrutura de Estações de Tratamento de Água; expandir a rede de distribuição para áreas periféricas, rurais e ribeirinhas; ampliar o controle e monitoramento contínuo da qualidade da água; realizar mutirões de regularização de ligações informais."
+                }
+                ]
+            },
+            {
+                "title": "Universalizar o acesso ao saneamento básico – Coleta e tratamento de esgoto",
+                "items": [
+                {
+                    "title": "Expansão do tratamento de esgoto",
+                    "description": "incentivar indústrias a instalar Estações de Tratamento de Efluentes de alta eficiência e sistemas de reuso; expandir a rede coletora de esgoto em áreas urbanas densas; articular a aceleração dos processos de concessão do saneamento básico."
+                }
+                ]
+            },
+            {
+                "title": "Aumentar qualidade e eficiência na prestação dos serviços de Saneamento Básico",
+                "items": [
+                {
+                    "title": "Governança, digitalização e resiliência",
+                    "description": "estruturar projetos de PPP com governança baseada em indicadores de desempenho; modernizar a gestão operacional com digitalização, telemetria e IoT; implementar Plano Estadual de Controle de Perdas; desenvolver infraestrutura de drenagem urbana e industrial; desenvolver planos de contingência para enchentes e secas do ciclo amazônico."
+                }
+                ]
+            }
+          ]
+        },
+        {
+          "id": "08-05",
+          "name": "Infraestrutura Digital",
+          "value": 1,
+          "sections": [
+            {
+                "title": "Aumentar a conectividade e o acesso à internet",
+                "items": [
+                {
+                    "title": "Expansão da infraestrutura de fibra óptica",
+                    "description": "expandir a rede de fibra óptica ao longo dos principais eixos rodoviários e ferroviários; priorizar a expansão de fibra óptica pública para os distritos industriais; estruturar investimentos em backhaul nas cidades estratégicas."
+                },
+                {
+                    "title": "Conectividade regional e inclusão digital",
+                    "description": "acompanhar e fomentar programas federais de conectividade para a região amazônica; estruturar política pública de conectividade digital para o interior; ampliar a conectividade nas regiões industriais e polos produtivos."
+                },
+                {
+                    "title": "Atração de investimento e competição no mercado digital",
+                    "description": "atrair operadores de data centers e edge computing, aproveitando a matriz energética limpa; incentivar a competição entre provedores de internet; conceder incentivos fiscais à aquisição de equipamentos de TI pela indústria local."
+                }
+                ]
+            },
+            {
+                "title": "Expandir a rede 5G",
+                "items": [
+                {
+                    "title": "Expansão regulada e qualificada do 5G",
+                    "description": "promover a atualização das legislações municipais de antenas; promover a formação local de mão de obra para infraestrutura digital; incentivar a implantação de redes privadas 5G em polos industriais; acompanhar o cumprimento do Edital do 5G da ANATEL; mapear a cobertura 5G e de fibra óptica nos polos industriais."
+                }
+                ]
+            },
+            {
+            "title": "Reduzir a dependência de satélites estrangeiros",
+            "items": [
+              {
+                  "title": "Soberania digital e redes de alta capacidade",
+                  "description": "implantar cabos submarinos para conectar o estado a redes internacionais de dados; expandir a infraestrutura terrestre de redes ópticas de longa distância (backbones); articular a conexão a redes de alta capacidade como a RNP; incentivar e atrair empresas de tecnologia e telecomunicações."
+              }
+            ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

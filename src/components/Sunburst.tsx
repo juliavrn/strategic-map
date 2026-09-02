@@ -9,14 +9,14 @@ interface SunburstProps {
 }
 
 const themeColors: Record<string, string> = {
-  Environment: "#2E7D32",
-  Health: "#C62828",
-  Education: "#1565C0",
-  Economy: "#EF6C00",
-  Technology: "#6A1B9A",
-  Society: "#00838F",
-  Governance: "#5D4037",
-  Infrastructure: "#455A64",
+  "Ambiente de Negócios": "#47536b",
+  "Ambiente Econômico": "#9c4a2e",
+  "Baixo Carbono e Recursos Naturais": "#2f6b4f",
+  "Comércio e Integração Internacional": "#b8752e",
+  "Desenvolvimento Humano e Trabalho": "#6b2a4e",
+  "Desenvolvimento Produtivo, Tecnologia e Inovação": "#2e4374",
+  "Educação": "#1c6e77",
+  "Infraestrutura": "#8a6d1f",
 }
 
 export default function Sunburst({
@@ -315,8 +315,6 @@ paths.on("click", (_, node) => {
 
   if (node.depth === 1) {
 
-    console.log("Focus:", node.data.name)
-
     setFocusName(node.data.name)
 
     return
@@ -568,7 +566,6 @@ labels.on("click", (_, node) => {
 
 
   if (node.depth === 1) {
-    console.log("Focus:", node.data.name)
     setFocusName(node.data.name)
     return
   }

@@ -1,6 +1,6 @@
 import Sunburst from "./components/Sunburst"
 import DetailPanel from "./components/DetailPanel"
-import { themes } from "./data/themes"
+import themes  from "./data/themes.json"
 import { useState } from "react"
 import type { Theme } from "./types"
 
@@ -26,7 +26,7 @@ function App() {
         node={selectedNode}
         onClose={() => setSelectedNode(null)}
       />
-      
+
     </main>
   )
 }
