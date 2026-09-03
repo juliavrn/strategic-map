@@ -11,8 +11,8 @@ function App() {
   return (
 
     <main
+      className="app-shell"
       style={{
-        minHeight: "100vh",
         background: "white",
       }}
     >

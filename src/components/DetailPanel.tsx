@@ -60,7 +60,7 @@ export default function DetailPanel({
                 className="detail-panel__item"
               >
                 <h4 className="detail-panel__item-title">
-                  {item.title}
+                  - {item.title}:
                 </h4>
 
                 <p className="detail-panel__item-description">

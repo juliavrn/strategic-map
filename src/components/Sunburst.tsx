@@ -643,6 +643,7 @@ return (
   <svg
 
     ref={svgRef}
+    className="sunburst"
 
     style={{
       width: "100%",
