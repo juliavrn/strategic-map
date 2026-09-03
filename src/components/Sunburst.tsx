@@ -228,10 +228,11 @@ mainThemes.forEach((theme, index) => {
       .attr("r", radius * 0.18)
       .attr("fill", "white")
 
+
     const centerRadius = radius * 0.18
     const centerTitle =
       focus === root
-        ? "Mapa"
+        ? "PARA A NOVA INDÚSTRIA"
         : focus.data.name
     const centerTitleMaxWidth = centerRadius * 1.55
     const centerTitleWords = centerTitle.split(" ")
@@ -296,35 +297,48 @@ mainThemes.forEach((theme, index) => {
     const titleStartY =
       -((centerTitleLines.length - 1) * titleLineHeight) / 2
 
+    if (focus === root) {
+      center
+        .append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", titleStartY - 22)
+        .attr("font-size", "9px")
+        .attr("fill", "#6b7280")
+        .text("O CAMINHO")
+    }
+
     const title = center
       .append("text")
       .attr("text-anchor", "middle")
       .attr("font-size", `${centerTitleFontSize}px`)
       .attr("font-weight", "600")
+      .attr("transform", "translate(0, 10)")
     centerTitleLines.forEach((line, index) => {
       title
         .append("tspan")
         .attr("x", 0)
         .attr("y", titleStartY + index * titleLineHeight)
+        .attr(
+          "font-family",
+          centerTitle === "PARA A NOVA INDÚSTRIA" ? "Fraunces, serif" : null,
+        )
         .text(line)
     })
 
-    center
-      .append("text")
-      .attr("text-anchor", "middle")
-      .attr(
-        "y",
-        titleStartY +
-          centerTitleLines.length * titleLineHeight +
-          4,
-      )
-      .attr("font-size", "9px")
-      .attr("fill", "#6b7280")
-      .text(
-        focus === root
-          ? "Overview"
-          : "Clique para voltar",
-      )
+    if (focus !== root) {
+      center
+        .append("text")
+        .attr("text-anchor", "middle")
+        .attr(
+          "y",
+          titleStartY +
+            centerTitleLines.length * titleLineHeight +
+            14,
+        )
+        .attr("font-size", "9px")
+        .attr("fill", "#6b7280")
+        .text("Clique para voltar")
+    }
 
     // Return to MAPA
     center.on("click", () => {
@@ -550,6 +564,41 @@ labels.each(function (node) {
 
     if (currentLine) {
       lines.push(currentLine)
+    }
+
+    const isClickedSubtheme =
+      focus !== root && node.depth === focus.depth + 1
+
+    if (isClickedSubtheme && words.length > 1) {
+      let bestLines = [words[0], words.slice(1).join(" ")]
+      let bestWidth = Number.POSITIVE_INFINITY
+
+      for (let splitIndex = 1; splitIndex < words.length; splitIndex += 1) {
+        const candidateLines = [
+          words.slice(0, splitIndex).join(" "),
+          words.slice(splitIndex).join(" "),
+        ]
+        const candidateWidth = Math.max(
+          ...candidateLines.map((line) => {
+            const measurement = text
+              .append("tspan")
+              .attr("x", 0)
+              .text(line)
+            const width =
+              measurement.node()?.getComputedTextLength() ?? 0
+
+            measurement.remove()
+            return width
+          }),
+        )
+
+        if (candidateWidth < bestWidth) {
+          bestWidth = candidateWidth
+          bestLines = candidateLines
+        }
+      }
+
+      lines = bestLines
     }
   }
 
