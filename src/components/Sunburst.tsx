@@ -228,28 +228,102 @@ mainThemes.forEach((theme, index) => {
       .attr("r", radius * 0.18)
       .attr("fill", "white")
 
-    center
+    const centerRadius = radius * 0.18
+    const centerTitle =
+      focus === root
+        ? "Mapa"
+        : focus.data.name
+    const centerTitleMaxWidth = centerRadius * 1.55
+    const centerTitleWords = centerTitle.split(" ")
+    let centerTitleFontSize = 24
+    let centerTitleLines: string[] = []
+
+    const buildCenterTitleLines = () => {
+      centerTitleLines = []
+      let currentLine = ""
+
+      centerTitleWords.forEach((word) => {
+        const candidate = currentLine
+          ? `${currentLine} ${word}`
+          : word
+        const measurement = center
+          .append("text")
+          .attr("font-size", `${centerTitleFontSize}px`)
+          .text(candidate)
+        const candidateWidth =
+          measurement.node()?.getComputedTextLength() ?? 0
+
+        measurement.remove()
+
+        if (!currentLine || candidateWidth <= centerTitleMaxWidth) {
+          currentLine = candidate
+        } else {
+          centerTitleLines.push(currentLine)
+          currentLine = word
+        }
+      })
+
+      if (currentLine) centerTitleLines.push(currentLine)
+    }
+
+    while (centerTitleFontSize >= 10) {
+      buildCenterTitleLines()
+      const longestLineWidth = Math.max(
+        ...centerTitleLines.map((line) => {
+          const measurement = center
+            .append("text")
+            .attr("font-size", `${centerTitleFontSize}px`)
+            .text(line)
+          const lineWidth =
+            measurement.node()?.getComputedTextLength() ?? 0
+
+          measurement.remove()
+          return lineWidth
+        }),
+      )
+
+      if (
+        longestLineWidth <= centerTitleMaxWidth &&
+        centerTitleLines.length <= 3
+      ) {
+        break
+      }
+
+      centerTitleFontSize -= 1
+    }
+
+    const titleLineHeight = centerTitleFontSize * 1.1
+    const titleStartY =
+      -((centerTitleLines.length - 1) * titleLineHeight) / 2
+
+    const title = center
       .append("text")
       .attr("text-anchor", "middle")
-      .attr("dy", "-0.1em")
-      .attr("font-size", "24px")
+      .attr("font-size", `${centerTitleFontSize}px`)
       .attr("font-weight", "600")
-      .text(
-        focus === root
-          ? "Mapa"
-          : focus.data.name,
-      )
+    centerTitleLines.forEach((line, index) => {
+      title
+        .append("tspan")
+        .attr("x", 0)
+        .attr("y", titleStartY + index * titleLineHeight)
+        .text(line)
+    })
 
     center
       .append("text")
       .attr("text-anchor", "middle")
-      .attr("dy", "1.4em")
-      .attr("font-size", "12px")
+      .attr(
+        "y",
+        titleStartY +
+          centerTitleLines.length * titleLineHeight +
+          4,
+      )
+      .attr("font-size", "9px")
       .attr("fill", "#6b7280")
       .text(
         focus === root
           ? "Overview"
-          : "Click to return",
+          : "Clique para voltar",
       )
 
     // Return to MAPA
@@ -301,7 +375,6 @@ const paths = group
         : "default",
   )
 
-// animation SEULEMENT ici
 paths
   .attr("opacity", 0)
   .transition()
@@ -434,10 +507,7 @@ labels.each(function (node) {
   const horizontalPadding =
     node.depth === 1 ? 16 : 10
 
-  const maxWidth = Math.max(
-    20,
-    availableWidth - horizontalPadding,
-  )
+  const maxWidth = Math.max(8, availableWidth - horizontalPadding)
 
   /*
    * Split the name into words.
@@ -470,10 +540,7 @@ labels.each(function (node) {
 
       testTspan.remove()
 
-      if (
-        !currentLine ||
-        width <= maxWidth
-      ) {
+      if (!currentLine || width <= maxWidth) {
         currentLine = testLine
       } else {
         lines.push(currentLine)
@@ -492,7 +559,7 @@ labels.each(function (node) {
    *
    * We NEVER truncate the text.
    */
-  while (fontSize >= minimumFontSize) {
+  while (fontSize > minimumFontSize) {
     text.attr(
       "font-size",
       `${fontSize}px`,
@@ -519,10 +586,7 @@ labels.each(function (node) {
     /*
      * Maximum two lines for readability.
      */
-    if (
-      longestLineWidth <= maxWidth &&
-      lines.length <= 2
-    ) {
+    if (longestLineWidth <= maxWidth && lines.length <= 2) {
       break
     }
 
@@ -532,23 +596,26 @@ labels.each(function (node) {
   /*
    * Rebuild the final label.
    */
-  text
-    .attr(
-      "font-size",
-      `${Math.max(fontSize, minimumFontSize)}px`,
-    )
+  fontSize = Math.max(fontSize, minimumFontSize)
+  text.attr("font-size", `${fontSize}px`)
 
   text.selectAll("tspan").remove()
 
-  const lineHeight =
-    node.depth === 1
-      ? fontSize + 2
-      : fontSize + 2
+  buildLines()
+  const lineHeight = fontSize + 2
 
   const startY =
     -((lines.length - 1) * lineHeight) / 2
 
   lines.forEach((line, index) => {
+    const lineMeasurement = text
+      .append("tspan")
+      .attr("x", 0)
+      .text(line)
+    const lineWidth = lineMeasurement.node()?.getComputedTextLength() ?? 0
+    lineMeasurement.remove()
+    const fitsWidth = Math.min(lineWidth, maxWidth)
+
     text
       .append("tspan")
       .attr("x", 0)
@@ -556,26 +623,17 @@ labels.each(function (node) {
         "y",
         startY + index * lineHeight,
       )
+      .attr(
+        "textLength",
+        fitsWidth,
+      )
+      .attr(
+        "lengthAdjust",
+        "spacingAndGlyphs",
+      )
       .text(line)
   })
 })
-
-
-  // Click only on main theme labels
-labels.on("click", (_, node) => {
-
-
-  if (node.depth === 1) {
-    setFocusName(node.data.name)
-    return
-  }
-
-  if (node.depth === 2) {
-    onSelect(node.data)
-  }
-
-})
-
 
 }, [data, focusName])
 
