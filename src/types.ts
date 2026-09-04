@@ -11,6 +11,7 @@ export interface ContentSection {
 export interface Theme {
   id?: string
   name: string
+  parentName?: string
   value?: number
   sections?: ContentSection[]
   children?: Theme[]

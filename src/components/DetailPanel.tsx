@@ -97,6 +97,11 @@ export default function DetailPanel({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.25, delay: 0.1 }}
         >
+          {node.parentName && (
+            <span className="detail-panel__parent-title">
+              {node.parentName}
+            </span>
+          )}
           {node.name}
         </motion.h2>
 

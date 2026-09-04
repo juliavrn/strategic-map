@@ -427,7 +427,10 @@ const handleNodeClick = (node: d3.HierarchyRectangularNode<Theme>) => {
   }
 
   if (node.depth === 2) {
-    onSelect(node.data)
+    onSelect({
+      ...node.data,
+      parentName: node.parent?.data.name,
+    })
   }
 }
 
@@ -458,7 +461,7 @@ subThemePaths.on("click", (_, node) => {
       .attr("text-anchor", "middle")
       .attr("fill", "white")
       .attr("font-size", (node) =>
-        node.depth === 1 ? "13px" : "10px",
+        node.depth === 1 ? "11px" : "8px",
       )
       .attr("cursor", (node) =>
         node.depth === 1 ? "pointer" : "default",
@@ -519,7 +522,14 @@ subThemePaths.on("click", (_, node) => {
   .attr("opacity", focus === root ? 0 : 1)
 .each(function (node) {
   const text = d3.select(this)
-  const words = node.data.name.split(" ")
+  const words = node.data.name.split(" ").flatMap((word) => {
+    if (word.length <= 12) return [word]
+
+    const chunks = word.match(/.{1,10}/g) ?? [word]
+    return chunks.map((chunk, index) =>
+      index < chunks.length - 1 ? `${chunk}-` : chunk,
+    )
+  })
 
   const maxCharsPerLine = 14
   const lines: string[] = []
@@ -546,7 +556,7 @@ subThemePaths.on("click", (_, node) => {
 
   text.selectAll("tspan").remove()
 
-  const lineHeight = 12
+  const lineHeight = 10
   const startY =
     -((lines.length - 1) * lineHeight) / 2
 
@@ -634,10 +644,10 @@ labels.each(function (node) {
    * Sub-themes use a smaller initial font.
    */
   let fontSize =
-    node.depth === 1 ? 13 : 10
+    node.depth === 1 ? 11 : 8
 
   const minimumFontSize =
-    node.depth === 1 ? 11 : 7
+    node.depth === 1 ? 9 : 6
 
   const horizontalPadding =
     node.depth === 1 ? 28 : 10
