@@ -1,7 +1,7 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
-  --bg: #fee2bb;
+  --bg: #f3f6f1;
   
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
@@ -58,9 +58,20 @@ body {
 }
 
 .app-header {
+  position: relative;
   width: min(900px, calc(100% - 40px));
   margin: 28px auto 0;
+  padding-top: 58px;
   text-align: center;
+}
+
+.app-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(250px, 28vw);
+  height: auto;
+  object-fit: contain;
 }
 
 .app-kicker {
@@ -90,7 +101,6 @@ body {
   margin: 0 auto;
   flex: 0 1 auto;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 1px rgba(122, 104, 95, 0.08);
 }
 
 h1,
@@ -109,6 +119,14 @@ h1 {
 }
 
 @media (max-width: 1024px) {
+  .app-header {
+    padding-top: 38px;
+  }
+
+  .app-logo {
+    width: min(190px, 34vw);
+  }
+
   .sunburst {
     width: min(100%, calc(100dvh - 100px)) !important;
   }

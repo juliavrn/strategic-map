@@ -10,6 +10,11 @@ function App() {
   return (
     <main className="app-shell">
       <header className="app-header">
+        <img
+          className="app-logo"
+          src="/logo_preto.png"
+          alt="Observatório da Indústria e Sistema FIEPA"
+        />
         <p className="app-kicker">Visão estratégica</p>
         <h1>Mapa Estratégico</h1>
         <p className="app-intro">
