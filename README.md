@@ -1,238 +1,189 @@
 # MAPA
 
-**MAPA** is an interactive strategic data visualization application designed to provide a clear and intuitive overview of complex datasets.
+MAPA is an interactive strategic visualization application designed to explore hierarchical data in a clear and intuitive way.
 
-The application uses an interactive **Sunburst chart** to organize information into main themes and sub-themes, making it easier to explore relationships between different areas of a dataset.
+It uses a Sunburst chart to represent major themes, their sub-themes, and associated content, making it easier to understand the relationships between different strategic axes.
 
 ## Overview
 
-MAPA is designed around a hierarchical data structure:
+The project displays a strategic map structured across multiple levels of hierarchy, including:
 
-```text
-MAPA
-├── Environment
-│   ├── ...
-│   └── ...
-├── Health
-│   ├── ...
-│   └── ...
-├── Education
-│   ├── ...
-│   └── ...
-├── Economy
-│   ├── ...
-│   └── ...
-├── Technology
-│   ├── ...
-│   └── ...
-├── Society
-│   ├── ...
-│   └── ...
-├── Governance
-│   ├── ...
-│   └── ...
-└── Infrastructure
-    ├── ...
-    └── ...
-```
+- a primary level: major themes
+- a secondary level: sub-themes
+- detailed content associated with each selected node
 
-The current prototype contains **8 main themes**, with a variable number of sub-themes depending on the theme.
-
-Each main theme has its own color, while its sub-themes use variations of the same color.
+The current application is focused on demonstration and exploration of sectoral data, particularly in a context of industrial and strategic planning.
 
 ## Features
 
-* Interactive Sunburst visualization
-* 8 equally sized main themes
-* Variable number of sub-themes
-* Color-coded themes and sub-themes
-* Interactive navigation through the hierarchy
-* Clickable main themes
-* Clickable sub-themes
-* Central navigation element
-* Multi-line labels for longer names
-* Responsive SVG-based visualization *(in progress)*
+- Interactive Sun- Hierarchical data structure
+burst visualization
+- Color coding by main theme
+- Sub-themes with color variations
+- Click-based navigation through nodes
+- Dynamic detail panel
+- Data structured in a JSON file
+- React + TypeScript interface
+- Light animation for panels and interactions
 
 ## Tech Stack
 
 ### Frontend
 
-* **React**
-* **TypeScript**
-* **D3.js**
-* **CSS / Tailwind CSS**
+- React 19
+- TypeScript
+- Vite
+- D3.js
+- Framer Motion
+- Custom CSS
 
-### Development Tools
+### Development tools
 
-* **Vite**
-* **Git**
-* **GitHub**
+- ESLint
+- Git / GitHub
 
-## Project Structure
+## Project structure
 
 ```text
 MAPA/
-├── src/
-│   ├── components/
-│   │   ├── Sunburst.tsx
-│   │   ├── Breadcrumb.tsx
-│   │   └── DetailPanel.tsx
-│   │
-│   ├── data/
-│   │   ├── themes.ts
-│   │   └── types.ts
-│   │
-│   ├── App.tsx
-│   └── main.tsx
-│
 ├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── DetailPanel.css
+│   │   ├── DetailPanel.tsx
+│   │   └── Sunburst.tsx
+│   ├── data/
+│   │   └── themes.json
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── types.ts
+├── eslint.config.js
+├── index.html
 ├── package.json
-└── README.md
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── README.md
+└── .gitignore
 ```
 
-## Getting Started
+## Quick start
 
 ### Prerequisites
 
-Make sure you have Node.js installed on your machine.
+Make sure you have installed:
+
+- Node.js 18+
+- npm
 
 ### Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/juliavrn/strategic-map.git
-```
-
-Navigate to the project:
-
-```bash
-cd strategic-map
-```
-
-Install dependencies:
 
 ```bash
 npm install
 ```
 
-Start the development server:
+### Run the project in development mode
 
 ```bash
 npm run dev
 ```
 
-The application will then be available through the local development URL provided by Vite.
+Then open the local URL displayed by Vite in your browser.
 
-## Data Structure
+### Build for production
 
-MAPA uses a hierarchical data model.
+```bash
+npm run build
+```
 
-A simplified example:
+## Data model
 
-```ts
-const themes: Theme = {
-  name: "Atlas",
-  description: "Overview of the dataset",
-  children: [
+The data is loaded from [src/data/themes.json](src/data/themes.json) and follows a hierarchical structure:
+
+```json
+{
+  "id": "mapa",
+  "name": "MAPA",
+  "children": [
     {
-      name: "Environment",
-      children: [
+      "id": "01",
+      "name": "Ambiente de Negócios",
+      "children": [
         {
-          name: "Climate Change",
-          value: 10,
-        },
-        {
-          name: "Biodiversity",
-          value: 8,
-        },
-      ],
-    },
-  ],
+          "id": "01-01",
+          "name": "Ambiente Regulatório",
+          "value": 1,
+          "sections": [
+            {
+              "title": "Melhorar a qualidade regulatória",
+              "items": [
+                {
+                  "title": "Articulação institucional e integração regulatória",
+                  "description": "..."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
 
-The `value` of each sub-theme is used to determine its relative size within its parent theme.
+Each node can contain:
 
-The 8 main themes are intentionally distributed equally around the Sunburst.
+- a name
+- a value used to calculate size in the Sunburst chart
+- children for the hierarchy
+- detailed sections displayed in the side panel
 
 ## Architecture
 
-The application is organized into reusable React components.
+### App
 
-### `Sunburst.tsx`
+The main component in [src/App.tsx](src/App.tsx) initializes the selected state and renders:
 
-Responsible for:
+- the Sunburst chart
+- the detail panel
 
-* Building the D3 hierarchy
-* Creating the Sunburst layout
-* Rendering arcs
-* Applying theme colors
-* Rendering labels
-* Managing interactions and navigation
+### Sunburst
 
-### `Breadcrumb.tsx`
+The component in [src/components/Sunburst.tsx](src/components/Sunburst.tsx) handles:
 
-Handles the navigation context of the current view.
+- D3 hierarchy construction
+- partition layout
+- arc rendering
+- color generation
+- click interactions
+- visual centering and navigation between levels
 
-### `DetailPanel.tsx`
+### DetailPanel
 
-Displays additional information when a sub-theme is selected.
+The component in [src/components/DetailPanel.tsx](src/components/DetailPanel.tsx) displays detailed information related to the selected node, including:
 
-### `themes.ts`
+- title
+- sections
+- items and associated descriptions
 
-Contains the application's hierarchical dataset.
+### Types
 
-### `types.ts`
+TypeScript structures are defined in [src/types.ts](src/types.ts) to ensure data consistency across the hierarchy.
 
-Defines the TypeScript types used by the application.
+## Project status
 
-## Development Philosophy
+The project is currently under active development and corresponds to a first functional version of a strategic data visualization prototype.
 
-MAPA is being developed with a focus on:
+The features already present focus on:
 
-* **Component-based architecture**
-* **Separation of data and presentation**
-* **Type safety with TypeScript**
-* **Reusable and maintainable code**
-* **Clear data visualization**
-* **Progressive enhancement**
-* **Responsive design**
-
-The goal is to keep the codebase as simple and lightweight as possible while maintaining a structure that can scale as the application grows.
-
-## Roadmap
-
-### Current
-
-* [x] React application setup
-* [x] TypeScript integration
-* [x] D3 Sunburst visualization
-* [x] Hierarchical data structure
-* [x] 8 main themes
-* [x] Equal-sized main themes
-* [x] Theme-based colors
-* [x] Interactive navigation
-* [x] Sub-theme selection
-* [x] Detail panel
-* [ ] Responsive design
-
-### Future
-
-* [ ] Connect the frontend to the backend
-* [ ] Replace demo data with real data
-* [ ] Improve label rendering
-* [ ] Refine animations and interactions
-* [ ] Improve accessibility
-* [ ] Production deployment
-* [ ] Additional data exploration features
-
-## Status
-
-**MAPA is currently under active development.**
-
-The current version is an interactive frontend prototype focused on exploring hierarchical data through a Sunburst visualization.
+- hierarchical visualization
+- user interaction
+- contextual detail for each theme
+- structured data in JSON format
 
 ## License
 
-This project is currently intended for development and demonstration purposes.
+This project is currently intended for development, demonstration, and prototyping use.
