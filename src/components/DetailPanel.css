@@ -87,7 +87,7 @@
 .detail-panel__title {
   margin: 0;
   padding-right: 40px;
-
+  padding: 20px;
   font-family: "Fraunces", Georgia, serif;
   font-size: clamp(1.8rem, 2vw, 2.5rem);
   line-height: 1.15;
