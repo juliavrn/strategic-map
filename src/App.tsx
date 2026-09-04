@@ -12,7 +12,7 @@ function App() {
       <header className="app-header">
         <img
           className="app-logo"
-          src="/logo_preto.png"
+          src="/logo_original.png"
           alt="Observatório da Indústria e Sistema FIEPA"
         />
         <h1>Mapa Estratégico da Indústria do Pará</h1>
