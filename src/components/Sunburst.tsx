@@ -225,9 +225,10 @@ mainThemes.forEach((theme, index) => {
 
     center
       .append("circle")
-      .attr("r", radius * 0.18)
-      .attr("fill", "white")
-
+      .attr("r", radius * 0.25)
+      .attr("fill", "#fdfaf6")
+      .attr("stroke", "rgba(122, 104, 95, 0.18)")
+      .attr("stroke-width", 1.5)
 
     const centerRadius = radius * 0.18
     const centerTitle =
@@ -351,10 +352,17 @@ mainThemes.forEach((theme, index) => {
     // VISIBLE NODES
     // -----------------------------------------
 
-    const visibleNodes =
+    const mainNodes =
       focus === root
         ? root.descendants().filter(
-            (node) => node.depth > 0,
+            (node) => node.depth === 1,
+          )
+        : []
+
+    const subThemeNodes =
+      focus === root
+        ? root.descendants().filter(
+            (node) => node.depth === 2,
           )
         : focus
             .descendants()
@@ -366,13 +374,13 @@ mainThemes.forEach((theme, index) => {
 // -----------------------------------------
 // ARCS
 // -----------------------------------------
-const paths = group
+const mainPaths = group
   .selectAll<
     SVGPathElement,
     d3.HierarchyRectangularNode<Theme>
   >("path.arc")
   .data(
-    visibleNodes,
+    mainNodes,
     (node) => node.data.name,
   )
   .join("path")
@@ -383,13 +391,28 @@ const paths = group
   .attr("stroke-width", 2)
   .attr(
     "cursor",
-    (node) =>
-      node.depth === 1 || node.depth === 2
-        ? "pointer"
-        : "default",
+    "pointer",
   )
 
-paths
+const subThemePaths = group
+  .selectAll<
+    SVGPathElement,
+    d3.HierarchyRectangularNode<Theme>
+  >("path.sub-theme-arc")
+  .data(
+    subThemeNodes,
+    (node) => node.data.name,
+  )
+  .join("path")
+  .attr("class", "sub-theme-arc")
+  .attr("d", (node) => arc(node))
+  .attr("fill", (node) => getColor(node))
+  .attr("stroke", "white")
+  .attr("stroke-width", 2)
+  .attr("cursor", "pointer")
+  .attr("opacity", focus === root ? 0 : 1)
+
+mainPaths
   .attr("opacity", 0)
   .transition()
   .duration(700)
@@ -397,35 +420,37 @@ paths
   .attr("opacity", 1)
 
 
-// CLICK EN DEHORS DE LA TRANSITION
-paths.on("click", (_, node) => {
-
+const handleNodeClick = (node: d3.HierarchyRectangularNode<Theme>) => {
   if (node.depth === 1) {
-
     setFocusName(node.data.name)
-
     return
   }
 
   if (node.depth === 2) {
-
     onSelect(node.data)
-
   }
+}
 
+// CLICK EN DEHORS DE LA TRANSITION
+mainPaths.on("click", (_, node) => {
+  handleNodeClick(node)
+})
+
+subThemePaths.on("click", (_, node) => {
+  handleNodeClick(node)
 })
 
     // -----------------------------------------
     // LABELS
     // -----------------------------------------
 
-    const labels = group
+    const mainLabels = group
       .selectAll<
         SVGTextElement,
         d3.HierarchyRectangularNode<Theme>
       >("text.label")
       .data(
-        visibleNodes,
+        mainNodes,
         (node) => node.data.name,
       )
       .join("text")
@@ -438,6 +463,11 @@ paths.on("click", (_, node) => {
       .attr("cursor", (node) =>
         node.depth === 1 ? "pointer" : "default",
       )
+      .style("user-select", "none")
+      .style("-webkit-user-select", "none")
+      .on("click", (_, node) => {
+        handleNodeClick(node)
+      })
       .attr("transform", (node) => {
         const startAngle =
           ((node.x0 - focus.x0) / focusAngleSize) *
@@ -468,6 +498,97 @@ paths.on("click", (_, node) => {
           rotate(${middleAngle > 90 ? 180 : 0})
         `
       })
+
+    const subThemeLabels = group
+  .selectAll<
+    SVGTextElement,
+    d3.HierarchyRectangularNode<Theme>
+  >("text.sub-theme-label")
+  .data(
+    subThemeNodes,
+    (node) => node.data.name,
+  )
+  .join("text")
+  .attr("class", "sub-theme-label")
+  .attr("text-anchor", "middle")
+  .attr("fill", "white")
+  .attr("font-size", "10px")
+  .attr("cursor", "pointer")
+  .style("user-select", "none")
+  .style("-webkit-user-select", "none")
+  .attr("opacity", focus === root ? 0 : 1)
+.each(function (node) {
+  const text = d3.select(this)
+  const words = node.data.name.split(" ")
+
+  const maxCharsPerLine = 14
+  const lines: string[] = []
+  let currentLine = ""
+
+  words.forEach((word) => {
+    const testLine = currentLine
+      ? `${currentLine} ${word}`
+      : word
+
+    if (testLine.length <= maxCharsPerLine) {
+      currentLine = testLine
+    } else {
+      if (currentLine) {
+        lines.push(currentLine)
+      }
+      currentLine = word
+    }
+  })
+
+  if (currentLine) {
+    lines.push(currentLine)
+  }
+
+  text.selectAll("tspan").remove()
+
+  const lineHeight = 12
+  const startY =
+    -((lines.length - 1) * lineHeight) / 2
+
+  lines.forEach((line, index) => {
+    text
+      .append("tspan")
+      .attr("x", 0)
+      .attr("y", startY + index * lineHeight)
+      .text(line)
+  })
+})  .attr("transform", (node) => {
+    const startAngle =
+      ((node.x0 - focus.x0) / focusAngleSize) *
+      2 *
+      Math.PI
+
+    const endAngle =
+      ((node.x1 - focus.x0) / focusAngleSize) *
+      2 *
+      Math.PI
+
+    const middleAngle =
+      ((startAngle + endAngle) / 2) *
+        (180 / Math.PI) -
+      90
+
+    const labelRadius =
+      (Math.max(0, node.y0 - focusRadiusStart) +
+        Math.max(0, node.y1 - focusRadiusStart)) /
+      2
+
+    return `
+      rotate(${middleAngle})
+      translate(${labelRadius}, 0)
+      rotate(${middleAngle > 90 ? 180 : 0})
+    `
+  })
+  .on("click", (_, node) => {
+    handleNodeClick(node)
+  })
+
+    const labels = mainLabels.merge(subThemeLabels)
 
 // -----------------------------------------
 // LABEL CONTENT
@@ -657,32 +778,78 @@ labels.each(function (node) {
     -((lines.length - 1) * lineHeight) / 2
 
   lines.forEach((line, index) => {
-    const lineMeasurement = text
-      .append("tspan")
-      .attr("x", 0)
-      .text(line)
-    const lineWidth = lineMeasurement.node()?.getComputedTextLength() ?? 0
-    lineMeasurement.remove()
-    const fitsWidth = Math.min(lineWidth, maxWidth)
-
-    text
-      .append("tspan")
-      .attr("x", 0)
-      .attr(
-        "y",
-        startY + index * lineHeight,
-      )
-      .attr(
-        "textLength",
-        fitsWidth,
-      )
-      .attr(
-        "lengthAdjust",
-        "spacingAndGlyphs",
-      )
-      .text(line)
+   text
+  .append("tspan")
+  .attr("x", 0)
+  .attr(
+    "y",
+    startY + index * lineHeight,
+  )
+  .text(line)
   })
 })
+
+if (focus === root) {
+  const revealSubThemes = (themeName: string, opacity: number) => {
+    subThemePaths
+      .filter(
+        (node) => node.parent?.data.name === themeName,
+      )
+      .transition()
+      .duration(450)
+      .ease(d3.easeCubicOut)
+      .attr("opacity", opacity)
+
+    subThemeLabels
+      .filter(
+        (node) => node.parent?.data.name === themeName,
+      )
+      .transition()
+      .duration(450)
+      .ease(d3.easeCubicOut)
+      .attr("opacity", opacity)
+  }
+
+  mainPaths
+    .on("mouseenter", (_, node) => {
+      revealSubThemes(node.data.name, 1)
+    })
+    .on("mouseleave", (_, node) => {
+      revealSubThemes(node.data.name, 0)
+    })
+
+  mainLabels
+    .on("mouseenter", (_, node) => {
+      revealSubThemes(node.data.name, 1)
+    })
+    .on("mouseleave", (_, node) => {
+      revealSubThemes(node.data.name, 0)
+    })
+
+  subThemePaths
+    .on("mouseenter", (_, node) => {
+      if (node.parent) {
+        revealSubThemes(node.parent.data.name, 1)
+      }
+    })
+    .on("mouseleave", (_, node) => {
+      if (node.parent) {
+        revealSubThemes(node.parent.data.name, 0)
+      }
+    })
+
+  subThemeLabels
+    .on("mouseenter", (_, node) => {
+      if (node.parent) {
+        revealSubThemes(node.parent.data.name, 1)
+      }
+    })
+    .on("mouseleave", (_, node) => {
+      if (node.parent) {
+        revealSubThemes(node.parent.data.name, 0)
+      }
+    })
+}
 
 }, [data, focusName])
 

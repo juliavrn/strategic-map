@@ -1,33 +1,31 @@
 import Sunburst from "./components/Sunburst"
 import DetailPanel from "./components/DetailPanel"
-import themes  from "./data/themes.json"
+import themes from "./data/themes.json"
 import { useState } from "react"
 import type { Theme } from "./types"
 
 function App() {
-
   const [selectedNode, setSelectedNode] = useState<Theme | null>(null)
 
   return (
+    <main className="app-shell">
+      <header className="app-header">
+        <p className="app-kicker">Visão estratégica</p>
+        <h1>Mapa Estratégico</h1>
+        <p className="app-intro">
+          Um mapa visual dos principais pilares estratégicos, suas prioridades
+          e as ações que impulsionam o desenvolvimento industrial e territorial.
+        </p>
+      </header>
 
-    <main
-      className="app-shell"
-      style={{
-        background: "white",
-      }}
-    >
-      <h1>Mapa Estratégico</h1>
-      <Sunburst
-        data={themes}
-        onSelect={setSelectedNode}
-      />
+      <Sunburst data={themes} onSelect={setSelectedNode} />
 
       <DetailPanel
         node={selectedNode}
         onClose={() => setSelectedNode(null)}
       />
-
     </main>
   )
 }
+
 export default App

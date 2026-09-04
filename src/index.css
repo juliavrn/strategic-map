@@ -1,9 +1,8 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
+  --bg: #fee2bb;
+  
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
@@ -17,7 +16,7 @@
 
   font: 18px/145% var(--sans);
   letter-spacing: 0.18px;
-  color-scheme: light dark;
+  color-scheme: light;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -30,30 +29,57 @@
   }
 }
 
+html {
+  background: var(--bg);
+}
 
+body {
+  margin: 0;
+  background: var(--bg);}
 
 #root {
-  width: 1126px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-}
-
 .app-shell {
-  height: 100dvh;
-  min-height: 0;
+  position: relative;
+  min-height: 100dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background: var(--bg);
+}
+
+.app-header {
+  width: min(900px, calc(100% - 40px));
+  margin: 28px auto 0;
+  text-align: center;
+}
+
+.app-kicker {
+  margin: 0 0 10px;
+  color: #7a685f;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: var(--sans);
+}
+
+.app-intro {
+  font-family: 'Inter', system-ui, sans-serif;
+  margin: 100px;
+  color: #544d49;
+  font-size: 1.5rem;
+  line-height: 1.7;
+  text-align: center;
 }
 
 .sunburst {
@@ -63,6 +89,8 @@ body {
   aspect-ratio: 1;
   margin: 0 auto;
   flex: 0 1 auto;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(122, 104, 95, 0.08);
 }
 
 h1,
@@ -75,13 +103,9 @@ h2 {
 h1 {
   font-family: "Fraunces", serif;
   font-weight: 400;
-  font-size: 56px;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: -1.68px;
-  margin: 30px 0 40px 0;
-  @media (max-width: 1024px) {
-    font-size: 28px;
-    margin: 20px 0;
-  }
+  margin: 20;
 }
 
 @media (max-width: 1024px) {
@@ -89,6 +113,7 @@ h1 {
     width: min(100%, calc(100dvh - 100px)) !important;
   }
 }
+
 h2 {
   font-size: 32px;
   font-weight: 600;
@@ -99,6 +124,7 @@ h2 {
     font-size: 20px;
   }
 }
+
 h4 {
   font-family: var(--heading);
   font-weight: 600;
@@ -109,10 +135,12 @@ h4 {
   text-align: left;
   justify-content: left;
 }
+
 h3 {
   text-align: left;
   justify-content: left;
 }
+
 p {
   margin: 0 0 30px 0;
   justify-content: left;
