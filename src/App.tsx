@@ -20,6 +20,7 @@ function App() {
         <p className="app-intro">
           Um mapa visual dos principais pilares estratégicos, suas prioridades
           e as ações que impulsionam o desenvolvimento industrial e territorial.
+          Explore os temas e subtemas para compreender como as diferentes iniciativas se conectam e contribuem para os objetivos estratégicos.
         </p>
       </header>
 

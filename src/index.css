@@ -59,9 +59,9 @@ body {
 
 .app-header {
   position: relative;
-  width: min(900px, calc(100% - 40px));
-  margin: 28px auto 0;
-  padding-top: 58px;
+  width: min(1100px, calc(100% - 40px));
+  margin: 40px auto 0;
+  padding-top: 96px;
   text-align: center;
 }
 
@@ -75,7 +75,7 @@ body {
 }
 
 .app-kicker {
-  margin: 0 0 10px;
+  margin: 0 0 20px;
   color: #7a685f;
   font-size: 0.72rem;
   letter-spacing: 0.18em;
@@ -86,19 +86,22 @@ body {
 
 .app-intro {
   font-family: 'Inter', system-ui, sans-serif;
-  margin: 100px;
+  font-style: italic;
+  width: min(100%, 1000px);
+  margin: 100px auto 52px;
+  box-sizing: border-box;
   color: #544d49;
   font-size: 1.5rem;
-  line-height: 1.7;
+  line-height: 1.55;
   text-align: center;
 }
 
 .sunburst {
-  width: min(100%, calc(100dvh - 160px)) !important;
+  width: min(100%, calc(100dvh - 40px)) !important;
   max-width: 100%;
   height: auto !important;
   aspect-ratio: 1;
-  margin: 0 auto;
+  margin: 8px auto 32px;
   flex: 0 1 auto;
   border-radius: 50%;
 }
@@ -115,12 +118,13 @@ h1 {
   font-weight: 400;
   font-size: clamp(2.5rem, 5vw, 4rem);
   letter-spacing: -1.68px;
-  margin: 20;
+  margin: 0;
 }
 
 @media (max-width: 1024px) {
   .app-header {
-    padding-top: 38px;
+    margin-top: 28px;
+    padding-top: 72px;
   }
 
   .app-logo {
@@ -128,7 +132,12 @@ h1 {
   }
 
   .sunburst {
-    width: min(100%, calc(100dvh - 100px)) !important;
+    width: min(100%, calc(100dvh - 35px)) !important;
+  }
+
+  .app-intro {
+    margin: 40px auto 36px;
+    font-size: 1.2rem;
   }
 }
 
