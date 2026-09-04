@@ -519,7 +519,7 @@ labels.each(function (node) {
     node.depth === 1 ? 11 : 7
 
   const horizontalPadding =
-    node.depth === 1 ? 16 : 10
+    node.depth === 1 ? 28 : 10
 
   const maxWidth = Math.max(8, availableWidth - horizontalPadding)
 

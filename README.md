@@ -1,6 +1,6 @@
-# MAPA
+# Mapa Estratégico
 
-MAPA is an interactive strategic visualization application designed to explore hierarchical data in a clear and intuitive way.
+Mapa Estratégico is an interactive strategic visualization application designed to explore hierarchical data in a clear and intuitive way.
 
 It uses a Sunburst chart to represent major themes, their sub-themes, and associated content, making it easier to understand the relationships between different strategic axes.
 
