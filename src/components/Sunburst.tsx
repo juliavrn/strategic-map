@@ -68,16 +68,16 @@ export default function Sunburst({
   }
 
 
-  useEffect(() => {
-    if (!svgRef.current) return
+useEffect(() => {
+  if (!svgRef.current) return
 
-    const width = 700
-    const height = 700
-    const radius = width / 2
+  const width = 700
+  const height = 700
+  const radius = width / 2
 
-    const svg = d3
-      .select(svgRef.current)
-      .attr("viewBox", `0 0 ${width} ${height}`)
+  const svg = d3
+    .select(svgRef.current)
+    .attr("viewBox", `0 0 ${width} ${height}`)
 
 const rootGroup = svg.select("g.main-group")
 
@@ -101,10 +101,10 @@ if (!rootGroup.empty()) {
     const mainThemes = root.children ?? []
 
     const layoutChildren = (
-  parent: d3.HierarchyRectangularNode<Theme>,
-  startAngle: number,
-  endAngle: number,
-) => {
+      parent: d3.HierarchyRectangularNode<Theme>,
+      startAngle: number,
+      endAngle: number,
+    ) => {
   const children = parent.children ?? []
 
   if (children.length === 0) return
@@ -515,7 +515,8 @@ subThemePaths.on("click", (_, node) => {
   .attr("class", "sub-theme-label")
   .attr("text-anchor", "middle")
   .attr("fill", "white")
-  .attr("font-size", "10px")
+  .attr("font-size", "9px")
+  .attr("dy", "0.1rem")
   .attr("cursor", "pointer")
   .style("user-select", "none")
   .style("-webkit-user-select", "none")

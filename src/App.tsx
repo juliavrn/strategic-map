@@ -13,7 +13,7 @@ function App() {
         <img
           className="app-logo"
           src="/logo_original.png"
-          alt="Observatório da Indústria e Sistema FIEPA"
+          alt="Logo do Observatório da Indústria e Sistema FIEPA"
         />
         <h1>Mapa Estratégico da Indústria do Pará</h1>
         <p className="app-intro">
@@ -56,7 +56,10 @@ function App() {
         </div>
       </section>
 
-      <Sunburst data={themes} onSelect={setSelectedNode} />
+      <Sunburst 
+        data={themes} 
+        onSelect={setSelectedNode} 
+      />
 
       <DetailPanel
         node={selectedNode}
