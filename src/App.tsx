@@ -25,8 +25,8 @@ function App() {
       </p>
 
       <p>
-        Esta síntese organiza o <strong>Mapa Estratégico da Indústria do Pará 2026-2032</strong>
-        na hierarquia <strong>Fator-Chave → Tema Prioritário → Objetivo → Iniciativas</strong>,
+        Esta síntese organiza o <strong>Mapa Estratégico da Indústria do Pará 2026-2032 </strong>
+         na hierarquia <strong>Fator-Chave → Tema Prioritário → Objetivo → Iniciativas</strong>,
         reunindo em macroiniciativas as <strong>620 ações estaduais</strong> mapeadas no
         documento-fonte, sem alterar seu sentido original. O Mapa organiza a agenda de
         competitividade em <strong>8 Fatores-Chave</strong> — sem hierarquia entre eles —,
