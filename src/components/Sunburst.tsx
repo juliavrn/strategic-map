@@ -828,21 +828,17 @@ const minimumFontSize =
   })
 })
 
-if (focus === root) {
+if (focus === root && !isMobile) {
   const revealSubThemes = (themeName: string, opacity: number) => {
     subThemePaths
-      .filter(
-        (node) => node.parent?.data.name === themeName,
-      )
+      .filter((node) => node.parent?.data.name === themeName)
       .transition()
       .duration(450)
       .ease(d3.easeCubicOut)
       .attr("opacity", opacity)
 
     subThemeLabels
-      .filter(
-        (node) => node.parent?.data.name === themeName,
-      )
+      .filter((node) => node.parent?.data.name === themeName)
       .transition()
       .duration(450)
       .ease(d3.easeCubicOut)
