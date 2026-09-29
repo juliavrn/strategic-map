@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import * as d3 from "d3"
 import type { Theme } from "../types"
 
+
 interface SunburstProps {
   data: Theme
   onSelect: (node: Theme) => void
@@ -327,19 +328,44 @@ mainThemes.forEach((theme, index) => {
     })
 
     if (focus !== root) {
-      center
-        .append("text")
-        .attr("text-anchor", "middle")
-        .attr(
-          "y",
-          titleStartY +
-            centerTitleLines.length * titleLineHeight +
-            14,
-        )
-        .attr("font-size", "9px")
-        .attr("fill", "#6b7280")
-        .text("Clique para voltar")
-    }
+  const backGroup = center
+    .append("g")
+    .attr(
+      "transform",
+      `translate(0, ${
+        titleStartY +
+        centerTitleLines.length * titleLineHeight +
+        14
+      })`
+    )
+    .attr("cursor", "pointer");
+
+  // Texte
+  backGroup
+    .append("text")
+    .attr("text-anchor", "middle")
+    .attr("y", 0)
+    .attr("font-size", "9px")
+    .attr("fill", "#6b7280")
+    .text("Clique para voltar");
+
+  // Icône en dessous du texte
+  backGroup
+    .append("path")
+    .attr(
+      "d",
+      "M9 14 4 9l5-5 M4 9h10a6 6 0 0 1 0 12h-2"
+    )
+    .attr("fill", "none")
+    .attr("stroke", "#6b7280")
+    .attr("stroke-width", 1.5)
+    .attr("stroke-linecap", "round")
+    .attr("stroke-linejoin", "round")
+    .attr(
+      "transform",
+      "translate(-5, 7) scale(0.45)"
+    );
+}
 
     // Return to MAPA
     center.on("click", () => {
@@ -348,9 +374,7 @@ mainThemes.forEach((theme, index) => {
       }
     })
 
-    // -----------------------------------------
-    // VISIBLE NODES
-    // -----------------------------------------
+// VISIBLE NODES
 
     const mainNodes =
       focus === root
@@ -371,9 +395,8 @@ mainThemes.forEach((theme, index) => {
                 node.depth > focus.depth,
             )
 
-// -----------------------------------------
 // ARCS
-// -----------------------------------------
+
 const mainPaths = group
   .selectAll<
     SVGPathElement,
