@@ -10,11 +10,13 @@ function App() {
   return (
     <main className="app-shell">
       <header className="app-header">
-        <img
-          className="app-logo"
-          src="/logo_original.png"
-          alt="Logo do Observatório da Indústria e Sistema FIEPA"
-        />
+        <a href="https://observatorio.fiepa.org.br/">
+          <img
+            className="app-logo"
+            src="/logo_original.png"
+            alt="Logo do Observatório da Indústria e Sistema FIEPA"
+          />
+        </a>
         <h1>Mapa Estratégico da Indústria do Pará</h1>
         <p className="app-intro">
         <strong>O MAPA ESTRATÉGICO DA INDÚSTRIA DO PARÁ</strong> traduz as prioridades e desafios
@@ -69,7 +71,7 @@ function App() {
       node={selectedNode}
       onClose={() => setSelectedNode(null)}
     />
-    
+
     </main>
   )
 }
