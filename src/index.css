@@ -75,16 +75,6 @@ body {
   object-fit: contain;
 }
 
-.app-kicker {
-  margin: 0 0 20px;
-  color: #7a685f;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-family: var(--sans);
-}
-
 .app-intro {
   font-family: 'Inter', system-ui, sans-serif;
   font-style: italic;
@@ -130,14 +120,47 @@ body {
   text-transform: uppercase;
 }
 
-.sunburst {
-  width: min(100%, calc(100dvh + 220px)) !important;
+.sunburst-container {
+  width: 100%;
   max-width: 100%;
-  height: auto !important;
-  aspect-ratio: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  margin: 8px auto 32px;
+}
+
+.sunburst {
+  display: block;
+  width: min(100vw, 900px);
+  height: auto;
   margin: 8px auto 32px;
   flex: 0 0 auto;
-  border-radius: 50%;
+}
+
+@media (max-width: 1024px) {
+  .sunburst-container {
+    justify-content: flex-start;
+  }
+
+  .sunburst {
+    width: 94vw;
+    max-width: 650px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sunburst {
+    width: 100vw;
+    max-width: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .sunburst {
+    width: 96vw;
+    max-width: none;
+  }
 }
 
 h1,

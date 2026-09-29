@@ -56,15 +56,20 @@ function App() {
         </div>
       </section>
 
+
+    <div className="sunburst-container">
       <Sunburst 
         data={themes} 
         onSelect={setSelectedNode} 
       />
+    </div>
+      
 
-      <DetailPanel
-        node={selectedNode}
-        onClose={() => setSelectedNode(null)}
-      />
+    <DetailPanel
+      node={selectedNode}
+      onClose={() => setSelectedNode(null)}
+    />
+    
     </main>
   )
 }

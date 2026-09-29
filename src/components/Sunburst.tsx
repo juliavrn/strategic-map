@@ -72,9 +72,14 @@ export default function Sunburst({
 useEffect(() => {
   if (!svgRef.current) return
 
+  const isMobile = window.innerWidth <= 768
+
   const width = 700
   const height = 700
   const radius = width / 2
+
+  const mainFontSize = isMobile ? 15 : 11
+  const subThemeFontSize = isMobile ? 12 : 8
 
   const svg = d3
     .select(svgRef.current)
@@ -85,9 +90,7 @@ const rootGroup = svg.select("g.main-group")
 if (!rootGroup.empty()) {
   rootGroup.remove()
 }
-    // -----------------------------------------
     // HIERARCHY
-    // -----------------------------------------
 
     const root = d3
       .hierarchy(data)
@@ -349,7 +352,7 @@ mainThemes.forEach((theme, index) => {
     .attr("fill", "#6b7280")
     .text("Clique para voltar");
 
-  // Icône en dessous du texte
+  // Icon below to return
   backGroup
     .append("path")
     .attr(
@@ -363,7 +366,7 @@ mainThemes.forEach((theme, index) => {
     .attr("stroke-linejoin", "round")
     .attr(
       "transform",
-      "translate(-5, 7) scale(0.45)"
+      "translate(-5, 7) scale(0.75)"
     );
 }
 
@@ -457,7 +460,6 @@ const handleNodeClick = (node: d3.HierarchyRectangularNode<Theme>) => {
   }
 }
 
-// CLICK EN DEHORS DE LA TRANSITION
 mainPaths.on("click", (_, node) => {
   handleNodeClick(node)
 })
@@ -466,131 +468,134 @@ subThemePaths.on("click", (_, node) => {
   handleNodeClick(node)
 })
 
-    // -----------------------------------------
-    // LABELS
-    // -----------------------------------------
+// LABELS
 
-    const mainLabels = group
-      .selectAll<
-        SVGTextElement,
-        d3.HierarchyRectangularNode<Theme>
-      >("text.label")
-      .data(
-        mainNodes,
-        (node) => node.data.name,
-      )
-      .join("text")
-      .attr("class", "label")
-      .attr("text-anchor", "middle")
-      .attr("fill", "white")
-      .attr("font-size", (node) =>
-        node.depth === 1 ? "11px" : "8px",
-      )
-      .attr("cursor", (node) =>
-        node.depth === 1 ? "pointer" : "default",
-      )
-      .style("user-select", "none")
-      .style("-webkit-user-select", "none")
-      .on("click", (_, node) => {
-        handleNodeClick(node)
-      })
-      .attr("transform", (node) => {
-        const startAngle =
-          ((node.x0 - focus.x0) / focusAngleSize) *
-          2 *
-          Math.PI
-
-        const endAngle =
-          ((node.x1 - focus.x0) / focusAngleSize) *
-          2 *
-          Math.PI
-
-        const middleAngle =
-          ((startAngle + endAngle) / 2) *
-            (180 / Math.PI) -
-          90
-
-        const labelRadius =
-          (Math.max(0, node.y0 - focusRadiusStart) +
-            Math.max(
-              0,
-              node.y1 - focusRadiusStart,
-            )) /
-          2
-
-        return `
-          rotate(${middleAngle})
-          translate(${labelRadius}, 0)
-          rotate(${middleAngle > 90 ? 180 : 0})
-        `
-      })
-
-    const subThemeLabels = group
-  .selectAll<
-    SVGTextElement,
-    d3.HierarchyRectangularNode<Theme>
-  >("text.sub-theme-label")
-  .data(
-    subThemeNodes,
-    (node) => node.data.name,
-  )
-  .join("text")
-  .attr("class", "sub-theme-label")
-  .attr("text-anchor", "middle")
-  .attr("fill", "white")
-  .attr("font-size", "9px")
-  .attr("dy", "0.1rem")
-  .attr("cursor", "pointer")
-  .style("user-select", "none")
-  .style("-webkit-user-select", "none")
-  .attr("opacity", focus === root ? 0 : 1)
-.each(function (node) {
-  const text = d3.select(this)
-  const words = node.data.name.split(" ").flatMap((word) => {
-    if (word.length <= 12) return [word]
-
-    const chunks = word.match(/.{1,10}/g) ?? [word]
-    return chunks.map((chunk, index) =>
-      index < chunks.length - 1 ? `${chunk}-` : chunk,
+const mainLabels = group
+    .selectAll<
+      SVGTextElement,
+      d3.HierarchyRectangularNode<Theme>
+    >("text.label")
+    .data(
+      mainNodes,
+      (node) => node.data.name,
     )
+    .join("text")
+    .attr("class", "label")
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .attr("font-size", (node) =>
+      node.depth === 1
+        ? `${mainFontSize}px`
+        : `${subThemeFontSize}px`,
+    )
+    .attr("cursor", (node) =>
+      node.depth === 1 ? "pointer" : "default",
+    )
+    .style("user-select", "none")
+    .style("-webkit-user-select", "none")
+    .on("click", (_, node) => {
+      handleNodeClick(node)
+    })
+    .attr("transform", (node) => {
+      const startAngle =
+        ((node.x0 - focus.x0) / focusAngleSize) *
+        2 *
+        Math.PI
+
+      const endAngle =
+        ((node.x1 - focus.x0) / focusAngleSize) *
+        2 *
+        Math.PI
+
+      const middleAngle =
+        ((startAngle + endAngle) / 2) *
+          (180 / Math.PI) -
+        90
+
+      const labelRadius =
+        (Math.max(0, node.y0 - focusRadiusStart) +
+          Math.max(
+            0,
+            node.y1 - focusRadiusStart,
+          )) /
+        2
+
+      return `
+        rotate(${middleAngle})
+        translate(${labelRadius}, 0)
+        rotate(${middleAngle > 90 ? 180 : 0})
+      `
   })
 
-  const maxCharsPerLine = 14
-  const lines: string[] = []
-  let currentLine = ""
+const subThemeLabels = group
+    .selectAll<
+      SVGTextElement,
+      d3.HierarchyRectangularNode<Theme>
+    >("text.sub-theme-label")
+    .data(
+      subThemeNodes,
+      (node) => node.data.name,
+    )
+    .join("text")
+    .attr("class", "sub-theme-label")
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .attr("font-size", "9px")
+    .attr("dy", "0.1rem")
+    .attr("cursor", "pointer")
+    .style("user-select", "none")
+    .style("-webkit-user-select", "none")
+    .attr(
+      "opacity",
+      isMobile && focus === root ? 0 : 1,
+    )
+    .each(function (node) {
+      const text = d3.select(this)
+      const words = node.data.name.split(" ").flatMap((word) => {
+        if (word.length <= 12) return [word]
 
-  words.forEach((word) => {
-    const testLine = currentLine
-      ? `${currentLine} ${word}`
-      : word
+        const chunks = word.match(/.{1,10}/g) ?? [word]
+        return chunks.map((chunk, index) =>
+          index < chunks.length - 1 ? `${chunk}-` : chunk,
+        )
+      })
 
-    if (testLine.length <= maxCharsPerLine) {
-      currentLine = testLine
-    } else {
+      const maxCharsPerLine = 14
+      const lines: string[] = []
+      let currentLine = ""
+
+      words.forEach((word) => {
+        const testLine = currentLine
+          ? `${currentLine} ${word}`
+          : word
+
+        if (testLine.length <= maxCharsPerLine) {
+          currentLine = testLine
+        } else {
+          if (currentLine) {
+            lines.push(currentLine)
+          }
+          currentLine = word
+        }
+      })
+
       if (currentLine) {
         lines.push(currentLine)
       }
-      currentLine = word
-    }
-  })
 
-  if (currentLine) {
-    lines.push(currentLine)
-  }
+      text.selectAll("tspan").remove()
 
-  text.selectAll("tspan").remove()
+      const lineHeight = 10
+      const startY =
+        -((lines.length - 1) * lineHeight) / 2
 
-  const lineHeight = 10
-  const startY =
-    -((lines.length - 1) * lineHeight) / 2
-
-  lines.forEach((line, index) => {
-    text
-      .append("tspan")
-      .attr("x", 0)
-      .attr("y", startY + index * lineHeight)
-      .text(line)
-  })
+      lines.forEach((line, index) => {
+        text
+          .append("tspan")
+          .attr("x", 0)
+          .attr("y", startY + index * lineHeight)
+          .text(line)
+      })
 })  .attr("transform", (node) => {
     const startAngle =
       ((node.x0 - focus.x0) / focusAngleSize) *
@@ -622,11 +627,9 @@ subThemePaths.on("click", (_, node) => {
     handleNodeClick(node)
   })
 
-    const labels = mainLabels.merge(subThemeLabels)
+const labels = mainLabels.merge(subThemeLabels)
 
-// -----------------------------------------
 // LABEL CONTENT
-// -----------------------------------------
 
 labels.each(function (node) {
   const text = d3.select(this)
@@ -667,11 +670,15 @@ labels.each(function (node) {
    * Main themes have more space.
    * Sub-themes use a smaller initial font.
    */
-  let fontSize =
-    node.depth === 1 ? 11 : 8
+let fontSize =
+  node.depth === 1
+    ? mainFontSize
+    : subThemeFontSize
 
-  const minimumFontSize =
-    node.depth === 1 ? 9 : 6
+const minimumFontSize =
+  node.depth === 1
+    ? (isMobile ? 13 : 9)
+    : (isMobile ? 10 : 6)
 
   const horizontalPadding =
     node.depth === 1 ? 28 : 10
@@ -760,8 +767,6 @@ labels.each(function (node) {
   /*
    * Try progressively smaller font sizes
    * until the complete label fits.
-   *
-   * We NEVER truncate the text.
    */
   while (fontSize > minimumFontSize) {
     text.attr(
@@ -891,16 +896,8 @@ if (focus === root) {
 return (
 
   <svg
-
     ref={svgRef}
     className="sunburst"
-
-    style={{
-      width: "100%",
-      height: "auto",
-      display: "block",
-    }}
-
   />
 
 )
