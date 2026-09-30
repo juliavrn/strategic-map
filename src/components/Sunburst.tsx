@@ -74,8 +74,8 @@ useEffect(() => {
 
   const isMobile = window.innerWidth <= 768
 
-  const width = 700
-  const height = 700
+  const width = isMobile ? 900 : 700
+  const height = width
   const radius = width / 2
 
   const mainFontSize = isMobile ? 15 : 11

@@ -23,6 +23,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 
   @media (max-width: 1024px) {
     font-size: 16px;
@@ -132,7 +133,7 @@ body {
 
 .sunburst {
   display: block;
-  width: min(100vw, 900px);
+  width: min(100%, 900px);
   height: auto;
   margin: 8px auto 32px;
   flex: 0 0 auto;
@@ -150,9 +151,18 @@ body {
 }
 
 @media (max-width: 768px) {
+   .sunburst-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
   .sunburst {
-    width: 100vw;
-    max-width: none;
+    width: 550px !important;
+    height: 550px !important;
+    max-width: none !important;
+    min-width: 550px !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
