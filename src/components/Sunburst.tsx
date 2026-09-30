@@ -547,7 +547,7 @@ const subThemeLabels = group
     .style("-webkit-user-select", "none")
     .attr(
       "opacity",
-      isMobile && focus === root ? 0 : 1,
+      focus === root ? 0 : 1,
     )
     .each(function (node) {
       const text = d3.select(this)
