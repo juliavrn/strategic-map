@@ -80,6 +80,7 @@ useEffect(() => {
 
   const mainFontSize = isMobile ? 15 : 11
   const subThemeFontSize = isMobile ? 12 : 8
+  const focusedSubThemeFontSize = isMobile ? 16 : 13
 
   const svg = d3
     .select(svgRef.current)
@@ -540,7 +541,12 @@ const subThemeLabels = group
     .attr("class", "sub-theme-label")
     .attr("text-anchor", "middle")
     .attr("fill", "white")
-    .attr("font-size", "9px")
+    .attr(
+      "font-size",
+      focus === root
+        ? `${subThemeFontSize}px`
+        : `${focusedSubThemeFontSize}px`,
+    )
     .attr("dy", "0.1rem")
     .attr("cursor", "pointer")
     .style("user-select", "none")
@@ -585,7 +591,13 @@ const subThemeLabels = group
 
       text.selectAll("tspan").remove()
 
-      const lineHeight = 10
+      const lineHeight = 
+        focus === root
+        ? mainFontSize + 2
+        : isMobile 
+          ? mainFontSize * 1.3
+          : mainFontSize * 1.2
+
       const startY =
         -((lines.length - 1) * lineHeight) / 2
 
